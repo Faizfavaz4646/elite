@@ -1,6 +1,5 @@
 import React from 'react';
 import { Shirt, Footprints, Circle, Hand, Droplet, Shield } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const categories = [
   { name: "Boots", icon: Footprints },
@@ -11,20 +10,26 @@ const categories = [
   { name: "Shin pads", icon: Shield },
 ];
 
-function MiniCategoryNav() {
+function MiniCategoryNav({ onCategorySelect }) {
   return (
     <div className="bg-white py-4 shadow-sm sticky top-[70px] z-20">
-      <div className="max-w-6xl mx-auto flex justify-center gap-4 flex-wrap">
+      <div className="max-w-6xl mx-auto flex justify-center flex-wrap gap-3">
         {categories.map(({ name, icon: Icon }) => (
-          <Link
+          <button
             key={name}
-            to={`/category/${name}`}
-            className="flex items-center font-bold text-sm md:text-base px-4 py-2 bg-yellow-100 hover:bg-yellow-300 text-gray-800 rounded-full shadow transition"
+            onClick={() => onCategorySelect(name)}
+            className="flex items-center px-4 py-2 bg-yellow-100 hover:bg-yellow-300 rounded-full shadow"
           >
             <Icon size={16} className="mr-2" />
             {name}
-          </Link>
+          </button>
         ))}
+        <button
+          onClick={() => onCategorySelect(null)}
+          className="px-4 py-2 bg-yellow-100 hover:bg-yellow-300 rounded-full shadow"
+        >
+          All Products
+        </button>
       </div>
     </div>
   );

@@ -5,21 +5,67 @@
       "name": "faiz favaz pm",
       "email": "faizfavaz7@gmail.com",
       "password": "123456",
-      "confirmpassword": "123456"
+      "confirmpassword": "123456",
+      "wishlist": [
+        {
+          "productId": "4",
+          "name": "NIKE Soccer Ball - FIFA Approved",
+          "price": "$45",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBnRUVH8QeLG8ppTlaUR7ed5kjW0G6U7dwfQ&s",
+          "category": "Balls",
+          "rating": 4.2
+        },
+        {
+          "productId": "1",
+          "name": "Adidas Predator 2025",
+          "price": "$120",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT5XpK9N72zZO3YcPLJRmmXWvvsI08bPBs1iUp9vyZF-U1U38GK-y4sUhXXCXvhP7GTm4tkAfHUoG7s6PsnVtreBFyyPlyl6Zel9Y-ZkyUs-wdvMwibw9rcNrM",
+          "category": "Boots",
+          "rating": 4.2
+        },
+        {
+          "productId": "7",
+          "name": "Tyka Football- Basic Socks | Red",
+          "price": "$12",
+          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSpvApf5ZEPjdQz0BBBQ8S0HCkcUmFvGH2uvOVya4D60DT4-x9PmgNiXztYoHwRwDfqxAwGm9ZhPaHyuK9_7X-2XKtGVZMpkhNh8ac6rKfo",
+          "category": "Socks",
+          "rating": 4.2
+        },
+        {
+          "productId": "2",
+          "name": "Nike Football Jersey PSG",
+          "price": "$80",
+          "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSHA951zorOzjJ4BYzBUShu9YrrRFAw9VcoGjFuhhx0Y9_QITnd2kTrZUGHnzoH8H1X4zy34eyERVGG-wuiHlMXzAFtossIAISF-6BquhLKVSKMcFGmFupiQw",
+          "category": "Jerseys",
+          "rating": 4.2
+        },
+        {
+          "productId": "18",
+          "name": "NIVIA Football",
+          "price": "$62",
+          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTyElTuctlNBouTxnNiLu_60Imr2CuIAykG1c9DufhLqGSS75EKahfaOGi8Tq1dKbFaL_lGQCk1c5zykOe3NtN4-eTgV2mO8Q2PllOT-Sq-bzD7qOnlEZoCHb9_E-EQ4DacbcGo1jfA7A&usqp=CAc",
+          "category": "Balls",
+          "rating": 4.2
+        }
+      ],
+      "cart": [
+        {
+          "productId": "2",
+          "name": "Nike Football Jersey PSG",
+          "price": "$80",
+          "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSHA951zorOzjJ4BYzBUShu9YrrRFAw9VcoGjFuhhx0Y9_QITnd2kTrZUGHnzoH8H1X4zy34eyERVGG-wuiHlMXzAFtossIAISF-6BquhLKVSKMcFGmFupiQw",
+          "quantity": 1
+        }
+      ],
+      "orders": []
     },
     {
-      "id": "d242",
-      "name": "faiz favaz pm",
-      "email": "faizfavaz7@gmail.com",
-      "password": "123456",
-      "confirmpassword": "123456"
-    },
-    {
-      "id": "9ab7",
-      "name": "saheer",
-      "email": "saheer@gmail.com",
-      "password": "12345678",
-      "confirmpassword": "12345678"
+      "id": "d1a9",
+      "name": "sidha",
+      "email": "sidhasamad@gmail.com",
+      "password": "1234567890",
+      "cart": [],
+      "wishlist": []
     }
   ],
   "products": [
@@ -489,11 +535,98 @@
       "name": "Dinetic Brazuca Football",
       "category": "Balls",
       "price": "$62",
-      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTav8X2zXsd8h6FqLufq295ZsiCQZ-5A0NYYDLHZsRk8Xtfqh517o2ONKYqk4D6CQC3NkWeegQnU3_cE-wcUIUu2arsFb6LR0sA9oq6BbcXCS8va3AMyDgvZA",
+      "image": "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/97594787e3bb46b68fa0898258c56592_9366/fussballliebe-training-ball.jpg",
       "rating": 4.2,
       "reviewCount": 85
+    },
+    {
+      "id": "2",
+      "name": "Nike Football Jersey PSG",
+      "category": "Jerseys",
+      "price": "$80",
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSHA951zorOzjJ4BYzBUShu9YrrRFAw9VcoGjFuhhx0Y9_QITnd2kTrZUGHnzoH8H1X4zy34eyERVGG-wuiHlMXzAFtossIAISF-6BquhLKVSKMcFGmFupiQw",
+      "rating": 4.2,
+      "reviewCount": 85,
+      "size": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    },
+    {
+      "id": "1",
+      "name": "Adidas Predator 2025",
+      "category": "Boots",
+      "price": "$120",
+      "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT5XpK9N72zZO3YcPLJRmmXWvvsI08bPBs1iUp9vyZF-U1U38GK-y4sUhXXCXvhP7GTm4tkAfHUoG7s6PsnVtreBFyyPlyl6Zel9Y-ZkyUs-wdvMwibw9rcNrM",
+      "rating": 4.2,
+      "reviewCount": 85,
+      "sizes": [
+        38,
+        40,
+        42,
+        44
+      ]
+    },
+    {
+      "id": "3",
+      "name": "NIVIA Goalkeeper Gloves",
+      "category": "Gloves",
+      "price": "$25",
+      "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSZesME9ofwmlFTkC4p0CW4WEbWK42YuEdB1AevVLNfLV88W3Ef_EqOvxJxSod7E_J0hwchs92KcJZY1pj_rcN3Z6nmWB7ZZQLHGN-8FfbABKYoElf6y9GjN0EGXcDFPqoSgPbp5vSAeg&usqp=CAc",
+      "rating": 4.2,
+      "reviewCount": 85,
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ]
+    },
+    {
+      "id": "2",
+      "productId": "2",
+      "name": "Nike Football Jersey PSG",
+      "category": "Jerseys",
+      "price": "$80",
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSHA951zorOzjJ4BYzBUShu9YrrRFAw9VcoGjFuhhx0Y9_QITnd2kTrZUGHnzoH8H1X4zy34eyERVGG-wuiHlMXzAFtossIAISF-6BquhLKVSKMcFGmFupiQw",
+      "rating": 4.2,
+      "reviewCount": 85,
+      "size": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "NIVIA Goalkeeper Gloves",
+      "category": "Gloves",
+      "price": "$25",
+      "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSZesME9ofwmlFTkC4p0CW4WEbWK42YuEdB1AevVLNfLV88W3Ef_EqOvxJxSod7E_J0hwchs92KcJZY1pj_rcN3Z6nmWB7ZZQLHGN-8FfbABKYoElf6y9GjN0EGXcDFPqoSgPbp5vSAeg&usqp=CAc",
+      "rating": 4.2,
+      "reviewCount": 85,
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Nike Football Jersey PSG",
+      "category": "Jerseys",
+      "price": "$80",
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSHA951zorOzjJ4BYzBUShu9YrrRFAw9VcoGjFuhhx0Y9_QITnd2kTrZUGHnzoH8H1X4zy34eyERVGG-wuiHlMXzAFtossIAISF-6BquhLKVSKMcFGmFupiQw",
+      "rating": 4.2,
+      "reviewCount": 85,
+      "size": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ]
     }
-  ],
-  "wishlist": [],
-  "cart": []
+  ]
 }

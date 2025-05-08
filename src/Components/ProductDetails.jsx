@@ -6,7 +6,9 @@ function ProductDetails() {
   const navigate=useNavigate();
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const currentUserId = 1; // Simulated logged-in user
+  console.log("product",product)
+  const currentUser = JSON.parse(localStorage.getItem('user'));
+  const currentUserId = currentUser?.id;
 
   useEffect(() => {
     axios.get(`http://localhost:5000/products/${id}`)
@@ -14,28 +16,51 @@ function ProductDetails() {
       .catch(err => console.error("Error fetching product:", err));
   }, [id]);
 
+
   const handleAddToCart = async () => {
+    if (!currentUserId) {
+      alert("Please log in first!");
+      return;
+    }
+  
     try {
-      // First, check if the item is already in the cart for this user
-      const check = await axios.get(`http://localhost:5000/cart?userId=${currentUserId}&id=${product.id}`);
-      if (check.data.length > 0) {
+      // 1. Fetch current user
+      const userRes = await axios.get(`http://localhost:5000/users/${currentUserId}`);
+      const user = userRes.data;
+  
+      // 2. Check if product is already in cart
+      const isInCart = user.cart.some(item => item.productId === product.id);
+      if (isInCart) {
         alert("Item already in cart");
         return;
       }
-
-      // Add to cart
-      await axios.post('http://localhost:5000/cart', {
-        ...product,
-        userId: currentUserId,
-        quantity: 1
+  
+      // 3. Add item to user's cart
+      const updatedCart = [
+        ...user.cart,
+        {
+          productId: product.id,
+          name: product.name,
+          price: product.price,
+          image: product.image,
+          size : product.size,
+          quantity: 1
+        }
+      ];
+  
+      // 4. PUT updated user
+      await axios.put(`http://localhost:5000/users/${currentUserId}`, {
+        ...user,
+        cart: updatedCart
       });
-
+  
       alert("Item added to cart!");
     } catch (error) {
       console.error("Error adding to cart:", error);
+      alert("Failed to add to cart. See console for details.");
     }
   };
-
+  
   const handleBuyNow = () => {
     alert("Redirect to payment page... (Coming Soon)");
     navigate('/payment');
@@ -66,10 +91,8 @@ function ProductDetails() {
               {'★'.repeat(Math.floor(product.rating))}
               <span className="text-gray-400 text-xs ml-2">({product.reviewCount} reviews)</span>
             </div>
-
             <p className="text-xl font-bold text-green-600">{product.price}</p>
           </div>
-
           <div className="mt-4 flex gap-3">
             <button
               onClick={handleAddToCart}

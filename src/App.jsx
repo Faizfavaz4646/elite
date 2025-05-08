@@ -10,7 +10,7 @@ import ProductDetails from './Components/ProductDetails';
 import ProductListing from './Components/Productlist/ProductListing';
 import Orders from './Components/Orders/Oders';
 import Payment from './Components/Payment/Payment';
-import CategoryWiseProducts from './Components/CategoryWiseProducts';
+
 
 
 
@@ -31,7 +31,7 @@ function App() {
         <Route path='product/:id' element={<ProductDetails />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/orders" element={<Orders />} />
-        <Route path="/category/:category" element={<CategoryWiseProducts />} />
+       
        </Routes>
 
         

@@ -3,66 +3,70 @@ import axios from 'axios';
 
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
-  const userId = 1; // simulate logged-in user
+  const currentUser = JSON.parse(localStorage.getItem('user'));
+  const currentUserId = currentUser?.id;
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/cart?userId=${userId}`)
-      .then(res => setCartItems(res.data))
-      .catch(err => console.error("Error fetching cart:", err));
-  }, []);
+    if (currentUserId) {
+      axios.get(`http://localhost:5000/users/${currentUserId}`)
+        .then(res => setCartItems(res.data.cart || []))
+        .catch(err => console.error("Error fetching cart:", err));
+    }
+  }, [currentUserId]);
 
-  const handleRemove = async (id) => {
-    await axios.delete(`http://localhost:5000/cart/${id}`);
-    setCartItems(cartItems.filter(item => item.id !== id));
+  const handleRemove = async (productId) => {
+    const res = await axios.get(`http://localhost:5000/users/${currentUserId}`);
+    const user = res.data;
+    const updatedCart = user.cart.filter(item => item.productId !== productId);
+
+    await axios.put(`http://localhost:5000/users/${currentUserId}`, {
+      ...user,
+      cart: updatedCart
+    });
+
+    setCartItems(updatedCart);
   };
 
   const updateQuantity = async (item, type) => {
-    const updatedQty = type === 'inc' ? item.quantity + 1 : item.quantity - 1;
-    if (updatedQty < 1) return;
+    const newQty = type === 'increment' ? item.quantity + 1 : item.quantity - 1;
+    if (newQty < 1) return;
 
-    const updatedItem = { ...item, quantity: updatedQty };
-    await axios.put(`http://localhost:5000/cart/${item.id}`, updatedItem);
+    const res = await axios.get(`http://localhost:5000/users/${currentUserId}`);
+    const user = res.data;
 
-    setCartItems(cartItems.map(ci => ci.id === item.id ? updatedItem : ci));
+    const updatedCart = user.cart.map(ci =>
+      ci.productId === item.productId ? { ...ci, quantity: newQty } : ci
+    );
+
+    await axios.put(`http://localhost:5000/users/${currentUserId}`, {
+      ...user,
+      cart: updatedCart
+    });
+
+    setCartItems(updatedCart);
   };
 
   return (
-    <div className="max-w-6xl mx-auto py-10 px-4 grid gap-6 pt-20">
+    <div className="max-w-6xl mx-auto py-20 px-4 grid gap-6">
       {cartItems.length === 0 ? (
         <p className="text-center text-gray-600 text-xl">Your cart is empty.</p>
       ) : (
         cartItems.map(item => (
-          <div key={item.id} className="bg-white rounded-xl shadow-md flex flex-col md:flex-row items-center md:items-start p-5 gap-6">
-            <img
-              src={item.image}
-              alt={item.name}
-              className="w-full md:w-48 h-48 object-contain rounded border"
-            />
-
-            <div className="flex flex-col justify-between w-full">
-              <div>
-                <h2 className="text-xl font-semibold">{item.name}</h2>
-                <p className="text-sm text-gray-500">{item.category}</p>
-                <div className="text-yellow-500 mt-2">
-                  {'★'.repeat(Math.floor(item.rating))} <span className="text-sm text-gray-400">({item.reviewCount} reviews)</span>
+          <div key={item.productId} className="bg-white rounded-xl shadow-md flex flex-col md:flex-row items-center p-5 gap-6 mt-15">
+            <img src={item.image} alt={item.name} className="w-48 h-48 object-contain border mt-17" />
+            <div className="flex flex-col w-full">
+              <h2 className="text-xl font-semibold">{item.name}</h2>
+              <p className="text-sm text-gray-500">{item.category}</p>
+              <p className="text-yellow-500 mt-1">{'★'.repeat(item.rating)}</p>
+              <p className="text-lg font-bold text-green-600">{item.price}</p>
+              <div className="flex items-center gap-4 mt-4">
+                <div className="flex items-center border px-3 py-1 rounded gap-2">
+                  <button onClick={() => updateQuantity(item, 'decrement')}>−</button>
+                  <span>{item.quantity}</span>
+                  <button onClick={() => updateQuantity(item, 'increment')}>+</button>
                 </div>
-                <p className="text-lg font-bold text-green-600 mt-2">{item.price}</p>
-              </div>
-
-              <div className="flex items-center mt-4 gap-4 flex-wrap">
-                <div className="flex items-center gap-2 border px-3 py-1 rounded">
-                  <button onClick={() => updateQuantity(item, 'dec')} className="text-xl font-bold">−</button>
-                  <span className="text-md">{item.quantity}</span>
-                  <button onClick={() => updateQuantity(item, 'inc')} className="text-xl font-bold">+</button>
-                </div>
-
-                <button onClick={() => handleRemove(item.id)} className="text-red-600 hover:underline">
-                  Remove
-                </button>
-
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition ml-auto">
-                  Buy Now
-                </button>
+                <button onClick={() => handleRemove(item.productId)} className="text-red-600 hover:underline">Remove</button>
+                <button className="ml-auto bg-blue-600 text-white px-4 py-2 rounded">Buy Now</button>
               </div>
             </div>
           </div>

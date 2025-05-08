@@ -1,89 +1,157 @@
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import React, { useEffect, useState } from 'react'
+import axios from 'axios';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import { FaShoppingCart, FaCartPlus } from 'react-icons/fa';
 
-function ProductListing() {
-    const [products,setProducts]=useState([]);
-    const [wishlist,setWishlist]=useState([]);
-     const currentUserId =1;                    //simulated logged-in user
+function ProductListing({ selectedCategory }) {
+  const [products, setProducts] = useState([]);
+  const [wishlist, setWishlist] = useState([]);
+  console.log("wishlist",wishlist)
+  const [cart, setCart] = useState([]);
+  const currentUser = JSON.parse(localStorage.getItem('user'));
+  const currentUserId = currentUser?.id;
+  console.log("curren",currentUserId)
+  useEffect(() => {
+    fetchProducts();
+    if (currentUserId) {
+      fetchCart();
+    }
+  }, [currentUserId]);
 
-     useEffect(()=>{
-        fetchProducts();
-        fetchWishlist();
+  const fetchProducts = async () => {
+    const res = await axios.get("http://localhost:5000/products");
+    setProducts(res.data);
+  };
 
-    }, []);
 
-        const fetchProducts = async () => {
-            try {
-                const response = await axios.get("http://localhost:5000/products");
-                setProducts (response.data);
-            } catch (error) {
-                console.error("Error fetching products",error);
-            }
-        };
-        const fetchWishlist = async () => {
-            try {
-                const response = await axios.get(`http://localhost:5000/wishlist?userId=${currentUserId}`);
-                setWishlist (response.data);
-            } catch (error) {
-                console.error("Error fetching wishlist",error);
-            }
 
-        };
-        const toggleWishlist = async (product) =>{
-            const isWishlisted = wishlist.find((item)=> item.id === product.id);
-            if(isWishlisted) {
-                await axios.delete(`http://localhost:5000/wishlist/${isWishlisted.id}`);
-            } else {
-                await axios.post(`http://localhost:5000/wishlist`, {
-                    ...product,
-                    userId: currentUserId,
 
-                });
-            }
-            fetchWishlist();      //refresh wishlist after add/remove
-        };
+  const fetchCart = async () => {
+    try {
+      const res = await axios.get(`http://localhost:5000/cart?userId=${userId}`);
+      console.log("Fetched Cart:", res.data);
+      setCart(res.data);
+    } catch (error) {
+      console.error("Error fetching cart", error);
+    }
+  };
 
-     
+  const toggleWishlist = async (product) => {
+    try {
+      const res = await axios.get(`http://localhost:5000/users/${currentUserId}`);
+      const user = res.data;
+      const existing = user.wishlist.find(w => w.productId === product.id);
+
+      let updatedWishlist;
+      if (existing) {
+        updatedWishlist = user.wishlist.filter(w => w.productId !== product.id);
+      } else {
+        updatedWishlist = [
+          ...user.wishlist,
+          {
+            productId: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            category: product.category,
+            rating: product.rating
+          }
+        ];
+      }
+
+      await axios.put(`http://localhost:5000/users/${currentUserId}`, {
+        ...user,
+        wishlist: updatedWishlist
+      });
+
+      setWishlist(updatedWishlist);
+      alert("Item added to wishlist")
+    } catch (err) {
+      console.error("Error updating wishlist:", err);
+    }
+  };  
+
+
+    const fetchUserWishlist = async () => {
+      try {
+        const res = await axios.get(`http://localhost:5000/users/${currentUserId}`);
+        setWishlist(res.data.wishlist || []);
+      } catch (err) {
+        console.error("Error fetching wishlist:", err);
+      }
+    };
+    
+    useEffect(() => {
+      if (currentUserId) {
+        fetchUserWishlist();
+      }
+    }, [currentUserId]);
+
+
+  const toggleCart = async (product) => {
+    try {
+      const existing = cart.find(c => c.productId === product.id);
+      if (existing) {
+        await axios.delete(`http://localhost:5000/cart/${existing.id}`);
+      } else {
+        await axios.post(`http://localhost:5000/cart`, {
+          userId,
+          productId: product.id,
+          quantity: 1,
+          ...product
+        });
+      }
+      fetchCart();
+    } catch (error) {
+      console.error("Error toggling cart", error);
+    }
+  };
+  const filtered = selectedCategory
+    ? products.filter(p => p.category === selectedCategory)
+    : products;
 
   return (
-    <div className='p-6'>
-           <h2 className="text-3xl font-bold mb-6 text-center">Soccer City Products</h2>
-    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6'>
-        {products.map((product)=> {
-            const isWishlisted =wishlist.some((item)=> item.id === product.id);
-            return (
-            <div key={product.id} className='relative border p-4 rounded shadow hover:shadow-xl transition'>
-                <Link to={`/product/${product.id}`}>
-                
-                <img
-                src={product.image} 
-                alt={product.name}
-                className='w-full h-48 object-cover-rounded'
-                />
-                <h3 className='text-lg font-semibold mt-4'>{product.name}</h3>
-                <p className='text-gray-600'>{product.category}</p>
-                <p className='text-xl font-bold text-gray-800'>{product.price}</p>
-                <div className='flex items-center mt-2'>
-                    <span className='text-yellow-500'>{'★'.repeat(Math.floor(product.rating))}</span>
-                    <span className='text-gray-500 ml-2'>({product.reviewCount} reviews)</span>
+    <div className="p-6">
+      <h2 className="text-3xl font-bold mb-6 text-center">
+        {selectedCategory ? `${selectedCategory} Products` : "All Products"}
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {filtered.map(product => {
+          const isWishlisted = wishlist.some(w => w.productId === product.id);
+          const isInCart = cart.some(c => c.productId === product.id);
 
-                </div>
-                </Link>
-                <button
-                onClick={() => toggleWishlist(product)}
-                 className='absalute top-4 right-4 text-2xl'>
-                    {isWishlisted ? <FaHeart className='text-red-500' />: <FaRegHeart />}
-                 </button>
+          return (
+            <div key={product.id} className="border p-4 rounded relative shadow hover:shadow-lg transition">
+              <Link to={`/product/${product.id}`}>
+                <img src={product.image} alt={product.name} className="w-full h-48 object-contain" />
+                <h3 className="mt-2 text-lg font-bold">{product.name}</h3>
+                <p className="text-sm text-gray-500">{product.category}</p>
+                <p className="text-gray-800 font-bold">{product.price}</p>
+                <div className="text-yellow-500">{'★'.repeat(product.rating)}</div>
+              </Link>
 
+              {/* Wishlist Icon */}
+              <button
+                onClick={()=>toggleWishlist(product)}
+                className="absolute top-3 right-3 text-xl"
+              >
+                {isWishlisted ? <FaHeart className="text-red-500" /> : <FaRegHeart />}
+              </button>
+
+              {/* Cart Icon */}
+              <button
+                onClick={() => toggleCart(product)}
+                className="absolute bottom-3 right-3 text-xl"
+              >
+                {isInCart ? <FaShoppingCart className="text-green-600" /> : <FaCartPlus />}
+              </button>
             </div>
-            );
-})}
-
-    </div>
+          );
+        })}
+      </div>
     </div>
   );
-};
+}
 
 export default ProductListing;
