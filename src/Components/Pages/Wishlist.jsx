@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useWishlist } from '../../WishlistContext';
+import { toast } from 'react-toastify';
 
 function Wishlist() {
   const [wishlist, setWishlist] = useState([]);
   const currentUser = JSON.parse(localStorage.getItem('user'));
   const currentUserId = currentUser?.id;
+  const { refreshWishlist } = useWishlist();
 
   useEffect(() => {
     if (currentUserId) fetchWishlist();
@@ -16,7 +19,8 @@ function Wishlist() {
       const res = await axios.get(`http://localhost:5000/users/${currentUserId}`);
       setWishlist(res.data.wishlist || []);
     } catch (error) {
-      console.error("Failed to fetch wishlist:", error);
+      console.error('Failed to fetch wishlist:', error);
+      toast.error('Failed to fetch wishlist');
     }
   };
 
@@ -24,16 +28,19 @@ function Wishlist() {
     try {
       const res = await axios.get(`http://localhost:5000/users/${currentUserId}`);
       const user = res.data;
-      const updatedWishlist = user.wishlist.filter(item => item.productId !== productId);
+      const updatedWishlist = user.wishlist.filter((item) => item.productId !== productId);
 
       await axios.put(`http://localhost:5000/users/${currentUserId}`, {
         ...user,
-        wishlist: updatedWishlist
+        wishlist: updatedWishlist,
       });
 
+      refreshWishlist();
       setWishlist(updatedWishlist);
+      toast.success('Item removed from wishlist');
     } catch (error) {
-      console.error("Error removing item from wishlist:", error);
+      console.error('Error removing item from wishlist:', error);
+      toast.error('Error removing item from wishlist');
     }
   };
 
@@ -44,13 +51,20 @@ function Wishlist() {
         <p className="text-center text-gray-600">Your wishlist is empty.</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {wishlist.map(item => (
-            <div key={item.productId} className="border p-4 rounded shadow relative bg-white">
+          {wishlist.map((item) => (
+            <div
+              key={item.productId}
+              className="border p-4 rounded shadow relative bg-white"
+            >
               <Link to={`/product/${item.productId}`}>
-                <img src={item.image} alt={item.name} className="w-full h-40 object-contain" />
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-40 object-contain"
+                />
                 <h3 className="mt-2 font-bold">{item.name}</h3>
                 <p className="text-sm text-gray-500">{item.category}</p>
-                <p className="font-bold text-gray-800">{item.price}</p>
+                <p className="font-bold text-gray-800">₹ {item.price}</p>
               </Link>
               <button
                 onClick={() => removeFromWishlist(item.productId)}

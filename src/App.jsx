@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Home from './Components/Pages/Home';
 import { Routes, Route } from 'react-router-dom';
 import Cart from './Components/Pages/Cart/Cart';
@@ -10,6 +10,9 @@ import ProductDetails from './Components/ProductDetails';
 import ProductListing from './Components/Productlist/ProductListing';
 import Orders from './Components/Orders/Oders';
 import Payment from './Components/Payment/Payment';
+import { ToastContainer } from 'react-toastify';
+
+
 
 
 
@@ -33,6 +36,8 @@ function App() {
         <Route path="/orders" element={<Orders />} />
        
        </Routes>
+        <ToastContainer position="top-right" autoClose={1000} />
+
 
         
  

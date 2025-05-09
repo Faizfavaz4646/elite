@@ -3,11 +3,16 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useCart } from '../../../CartContext';
+import { useWishlist } from '../../../WishlistContext';
+import { toast } from 'react-toastify';
+
 
 const LoginValidation = Yup.object({
   email: Yup.string().email('Invalid email format').required('Email is required'),
   password: Yup.string().required('Password is required'),
 });
+
 
 const initialValues = {
   email: '',
@@ -15,6 +20,8 @@ const initialValues = {
 };
 
 function Login() {
+  const { refreshCart } = useCart();
+const { refreshWishlist } = useWishlist();
   const navigate = useNavigate();
 
   const handleSubmit = async (values) => {
@@ -32,7 +39,9 @@ function Login() {
       if (res.data.length > 0) {
         const user = res.data[0];
         localStorage.setItem("user", JSON.stringify(user));
-        alert("Login successful!");
+        toast.success("Login successful!");
+        refreshCart();
+        refreshWishlist();
         navigate("/");
       } else {
         alert("User not found. Please sign up first.");

@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useCart } from '../../../CartContext';
+import { toast } from 'react-toastify';
 
 function Cart() {
   const [cartItems, setCartItems] = useState([]);
   const currentUser = JSON.parse(localStorage.getItem('user'));
   const currentUserId = currentUser?.id;
+  const { refreshCart } = useCart();
 
   useEffect(() => {
     if (currentUserId) {
@@ -18,11 +21,13 @@ function Cart() {
     const res = await axios.get(`http://localhost:5000/users/${currentUserId}`);
     const user = res.data;
     const updatedCart = user.cart.filter(item => item.productId !== productId);
+    toast.info("Item removed from Cart")
 
     await axios.put(`http://localhost:5000/users/${currentUserId}`, {
       ...user,
       cart: updatedCart
     });
+    refreshCart();
 
     setCartItems(updatedCart);
   };
@@ -58,7 +63,7 @@ function Cart() {
               <h2 className="text-xl font-semibold">{item.name}</h2>
               <p className="text-sm text-gray-500">{item.category}</p>
               <p className="text-yellow-500 mt-1">{'★'.repeat(item.rating)}</p>
-              <p className="text-lg font-bold text-green-600">{item.price}</p>
+              <p className="text-lg font-bold text-green-600">₹ {item.price}</p>
               <div className="flex items-center gap-4 mt-4">
                 <div className="flex items-center border px-3 py-1 rounded gap-2">
                   <button onClick={() => updateQuantity(item, 'decrement')}>−</button>

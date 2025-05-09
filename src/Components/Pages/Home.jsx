@@ -10,9 +10,8 @@ function Home() {
   // Reset selected category and scroll to top on mount
   useEffect(() => {
     setSelectedCategory(null);
-    window.scrollTo(0,0)
-    
-  }, []); 
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <main>
@@ -20,9 +19,7 @@ function Home() {
         <h2 className="text-4xl font-extrabold text-gray-800 mb-4">
           Welcome to <span className="text-yellow-600">Soccer City</span>
         </h2>
-        <p className="font-bold text-lg text-gray-700">
-          Your one-stop shop for all football gear!
-        </p>
+        <p className="font-bold text-lg text-gray-700">Your one-stop shop for all football gear!</p>
         <h3 className="text-2xl font-extrabold">
           Play like a <span className="text-yellow-600">pro</span>!
         </h3>

@@ -1,13 +1,13 @@
 import React from 'react';
-import { Shirt, Footprints, Circle, Hand, Droplet, Shield } from "lucide-react";
+import { Shirt, Footprints, Circle, Hand, Droplet, Shield } from 'lucide-react';
 
 const categories = [
-  { name: "Boots", icon: Footprints },
-  { name: "Jerseys", icon: Shirt },
-  { name: "Balls", icon: Circle },
-  { name: "Gloves", icon: Hand },
-  { name: "Socks", icon: Droplet },
-  { name: "Shin pads", icon: Shield },
+  { name: 'Boots', icon: Footprints },
+  { name: 'Jerseys', icon: Shirt },
+  { name: 'Balls', icon: Circle },
+  { name: 'Gloves', icon: Hand },
+  { name: 'Socks', icon: Droplet },
+  { name: 'Shin pads', icon: Shield },
 ];
 
 function MiniCategoryNav({ onCategorySelect }) {
