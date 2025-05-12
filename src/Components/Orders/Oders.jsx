@@ -1,19 +1,21 @@
-// src/Components/Pages/Orders/Orders.jsx
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function Orders() {
   const [orders, setOrders] = useState([]);
-  const userId = localStorage.getItem("userId");
+  const currentUser = JSON.parse(localStorage.getItem('user'));
+  const currentUserId = currentUser?.id;
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/orders?userId=${userId}`)
-      .then(res => setOrders(res.data))
-      .catch(err => console.error("Error fetching orders:", err));
-  }, []);
+    if (currentUserId) {
+      axios.get(`http://localhost:5000/orders?userId=${currentUserId}`)
+        .then(res => setOrders(res.data))
+        .catch(err => console.error("Error fetching orders:", err));
+    }
+  }, [currentUserId]);
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-10">
+    <div className="max-w-5xl mx-auto px-4 mt-20 py-10">
       <h2 className="text-3xl font-bold mb-6 text-center">My Orders</h2>
 
       {orders.length === 0 ? (
@@ -24,7 +26,7 @@ function Orders() {
             <div className="flex justify-between mb-2">
               <p className="text-sm text-gray-500">Order Date: {new Date(order.date).toLocaleString()}</p>
               <span className="text-sm bg-blue-100 text-blue-700 px-2 py-1 rounded">
-                {order.paymentMethod === 'cod' ? 'Cash on Delivery' : 'Card'}
+                {order.paymentMethod === 'Cash on Delivery' ? 'Cash on Delivery' : 'Card'}
               </span>
             </div>
 
@@ -42,7 +44,7 @@ function Orders() {
             </div>
 
             <div className="text-right font-bold text-xl mt-4">
-              Total: ₹{order.paymentMethod === 'cod' ? order.total + 50 : order.total}
+              Total: ₹{order.totalAmount}
             </div>
           </div>
         ))

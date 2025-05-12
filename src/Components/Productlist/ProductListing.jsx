@@ -124,7 +124,7 @@ function ProductListing({ selectedCategory }) {
       <h2 className="text-3xl font-bold mb-6 text-center">
         {selectedCategory ? `${selectedCategory} Products` : 'All Products'}
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {filtered.map((product) => {
           const isWishlisted = wishlist.some((w) => w.productId === product.id);
           const isInCart = cart.some((c) => c.productId === product.id);

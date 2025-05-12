@@ -1,42 +1,47 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import MiniCategoryNav from '../MiniCategoryNav';
 import ImageSlider from '../ImageSlider';
 import ProductListing from '../Productlist/ProductListing';
 import Footer from '../Footer';
+import EliteElevenGoldenEmblem from '../../assets/images/Elite Eleven Golden Emblem.png';
 
 function Home() {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  // Reset selected category and scroll to top on mount
   useEffect(() => {
     setSelectedCategory(null);
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <main>
-      <section className="bg-yellow-100 text-center py-16 my-16">
-        <h2 className="text-4xl font-extrabold text-gray-800 mb-4">
-          Welcome to <span className="text-yellow-600">Soccer City</span>
-        </h2>
-        <p className="font-bold text-lg text-gray-700">Your one-stop shop for all football gear!</p>
-        <h3 className="text-2xl font-extrabold">
-          Play like a <span className="text-yellow-600">pro</span>!
-        </h3>
-      </section>
+   <main className="bg-white">
+  {/* HERO SECTION */}
+  <section className="text-center py-20 px-4 bg-white shadow-md rounded">
+    {/* Larger Logo */}
+    <img
+      src={EliteElevenGoldenEmblem}
+      alt="Elite Eleven Logo"
+      className="mx-auto w-52 md:w-64 h-auto mb-6"
+    />
 
-      {/* Image banner/slider first */}
-      <ImageSlider />
+    {/* Catchy Tagline */}
+    <p className="text-gray-700 text-lg md:text-xl font-semibold mb-2">
+      Your one-stop shop for all football gear!
+    </p>
 
-      {/* Category filter navigation */}
-      <MiniCategoryNav onCategorySelect={setSelectedCategory} />
+    {/* Bold Heading */}
+    <h1 className="text-3xl md:text-5xl font-extrabold tracking-wide">
+      Play like a <span className="text-yellow-600">Pro</span>!
+    </h1>
+  </section>
 
-      {/* Product list filtered by category */}
-      <ProductListing selectedCategory={selectedCategory} />
+  {/* Remaining Content */}
+  <ImageSlider />
+  <MiniCategoryNav onCategorySelect={setSelectedCategory} />
+  <ProductListing selectedCategory={selectedCategory} />
+  <Footer />
+</main>
 
-      {/* Page footer */}
-      <Footer />
-    </main>
   );
 }
 

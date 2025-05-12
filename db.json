@@ -7,7 +7,21 @@
       "password": "123456",
       "confirmpassword": "123456",
       "wishlist": [],
-      "cart": [],
+      "cart": [
+        {
+          "productId": "8",
+          "name": "Nike Men's Lamine Yamal Home Authentic Player Jersey",
+          "price": "875",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ5yZe1yW8ZYJKWoxhMwCBtZYOQejkYc5-WkfLwPOD9b1pS-iMpHWfchUgRCUGr6ZXdt0wr_dtPjGjT4XSan7_ZHap0DotyLnqZFTkqBG_DqQ5F82jgT-vz",
+          "size": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
+          "quantity": 1
+        }
+      ],
       "orders": []
     },
     {
@@ -17,29 +31,12 @@
       "password": "1234567890",
       "cart": [
         {
-          "productId": "3",
-          "quantity": 1,
-          "name": "NIVIA Goalkeeper Gloves",
-          "price": "350",
-          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSZesME9ofwmlFTkC4p0CW4WEbWK42YuEdB1AevVLNfLV88W3Ef_EqOvxJxSod7E_J0hwchs92KcJZY1pj_rcN3Z6nmWB7ZZQLHGN-8FfbABKYoElf6y9GjN0EGXcDFPqoSgPbp5vSAeg&usqp=CAc",
-          "category": "Gloves",
-          "rating": 4.2
-        }
-      ],
-      "wishlist": []
-    },
-    {
-      "id": "80bf",
-      "name": "yasar",
-      "email": "yasar@gmail.com",
-      "password": "123456",
-      "cart": [
-        {
-          "productId": "3",
-          "name": "NIVIA Goalkeeper Gloves",
-          "price": "$25",
-          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSZesME9ofwmlFTkC4p0CW4WEbWK42YuEdB1AevVLNfLV88W3Ef_EqOvxJxSod7E_J0hwchs92KcJZY1pj_rcN3Z6nmWB7ZZQLHGN-8FfbABKYoElf6y9GjN0EGXcDFPqoSgPbp5vSAeg&usqp=CAc",
+          "productId": "12",
+          "name": "Brazil Football jersey Neymar",
+          "price": "650",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQNBmwP6mvbTIHfwGqWosoaHAeIGnR5tof6raK-HFK7R9sRj9dEnpMSvrowwMIYzL3NNDBgDks9HQG2_3xK856qij9iE3GfPLxW0vplgMykDTY75oy6Bd4TFA",
           "size": [
+            "S",
             "M",
             "L",
             "XL"
@@ -47,37 +44,46 @@
           "quantity": 1
         },
         {
-          "productId": "7",
-          "name": "Tyka Football- Basic Socks | Red",
-          "price": "$12",
-          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSpvApf5ZEPjdQz0BBBQ8S0HCkcUmFvGH2uvOVya4D60DT4-x9PmgNiXztYoHwRwDfqxAwGm9ZhPaHyuK9_7X-2XKtGVZMpkhNh8ac6rKfo",
-          "quantity": 1
-        },
-        {
-          "productId": "6",
-          "name": "VECTOR X VRX7 Shin Guard with Blastic",
-          "price": "$19",
-          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSwnl6u4oM4PHc73_KdofuN8VaHgMT6OE9hgxKXo8DS6G8B-FERqDk1tQIvCjcxnIiSsF92FbTfZP124MVNNqJK9FE-wkKcNL_Mg21QcygK3zUYJEvAvkfq",
+          "productId": "1",
+          "name": "Adidas Predator 2025",
+          "price": "999",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT5XpK9N72zZO3YcPLJRmmXWvvsI08bPBs1iUp9vyZF-U1U38GK-y4sUhXXCXvhP7GTm4tkAfHUoG7s6PsnVtreBFyyPlyl6Zel9Y-ZkyUs-wdvMwibw9rcNrM",
           "quantity": 1
         },
         {
           "productId": "4",
           "name": "NIKE Soccer Ball - FIFA Approved",
-          "price": "$45",
+          "price": "1249",
           "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBnRUVH8QeLG8ppTlaUR7ed5kjW0G6U7dwfQ&s",
+          "quantity": 1
+        },
+        {
+          "productId": "11",
+          "name": "Aussie Rules Football Hygiene Water Bottle [1 Litre]",
+          "price": "110",
+          "image": "https://nwscdn.com/media/catalog/product/cache/h900xw900/t/e/team_hygiene_water_bottle_01_4.jpg",
           "quantity": 1
         }
       ],
+      "orders": [],
       "wishlist": [
         {
-          "productId": "2",
-          "name": "Nike Football Jersey PSG",
-          "price": "$80",
-          "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSHA951zorOzjJ4BYzBUShu9YrrRFAw9VcoGjFuhhx0Y9_QITnd2kTrZUGHnzoH8H1X4zy34eyERVGG-wuiHlMXzAFtossIAISF-6BquhLKVSKMcFGmFupiQw",
-          "category": "Jerseys",
+          "productId": "1",
+          "name": "Adidas Predator 2025",
+          "price": "999",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT5XpK9N72zZO3YcPLJRmmXWvvsI08bPBs1iUp9vyZF-U1U38GK-y4sUhXXCXvhP7GTm4tkAfHUoG7s6PsnVtreBFyyPlyl6Zel9Y-ZkyUs-wdvMwibw9rcNrM",
+          "category": "Boots",
           "rating": 4.2
         }
       ]
+    },
+    {
+      "id": "80bf",
+      "name": "yasar",
+      "email": "yasar@gmail.com",
+      "password": "123456",
+      "cart": [],
+      "wishlist": []
     }
   ],
   "products": [

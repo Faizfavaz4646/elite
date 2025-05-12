@@ -1,9 +1,9 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaShoppingCart, FaHome, FaHeart, FaBars, FaTimes } from 'react-icons/fa';
-import { TbPlayFootball } from 'react-icons/tb';
+import { FaShoppingCart, FaHome, FaHeart, FaBars, FaTimes } from 'react-icons/fa'; 
 import { useEffect, useState } from 'react';
 import { useCart, useCartCount } from '../CartContext';
 import { useWishlist, useWishlistCount } from '../WishlistContext';
+
 
 function Navbar() {
   const [user, setUser] = useState(null);
@@ -45,8 +45,14 @@ function Navbar() {
         {/* Logo */}
         <div className="flex items-center gap-2 text-yellow-400 text-2xl font-bold">
           <h1 className="flex items-center gap-2">
-            Soccer City <TbPlayFootball className="text-3xl text-white" />
+                         ⚽ Elite Eleven
+        
+           {/*<TbPlayFootball className="text-3xl text-white" />*/}
           </h1>
+         
+        
+         
+             
         </div>
 
         {/* Hamburger Button */}
@@ -82,10 +88,17 @@ function Navbar() {
             <span className="absolute -top-2 -right-2 bg-yellow-400 text-xs rounded-full px-1 text-black">{cartCount}</span>
           </Link>
 
-          <Link to="/wishlist" className="relative text-xl text-white">
-            <FaHeart />
-            <span className="absolute -top-2 -right-2 bg-yellow-400 text-xs rounded-full px-1 text-black">{wishlistCount}</span>
-          </Link>
+         <Link to="/wishlist" className="relative text-xl text-white">
+    <FaHeart />
+    <span className="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs rounded-full w-4 h-4 flex items-center justify-center">
+      {wishlistCount}
+    </span>
+  </Link>
+
+  <Link to="/orders" className="flex items-center space-x-1 text-md text-white">
+    <span>🧾</span>  {/* Optional icon for Orders */}
+    <span>Orders</span>
+  </Link>
 
           {user && (
                  
@@ -126,6 +139,9 @@ function Navbar() {
             </Link>
             <Link to="/wishlist" onClick={() => setMenuOpen(false)} className="flex items-center gap-2">
               <FaHeart /> Wishlist ({wishlistCount})
+            </Link>
+            <Link to="/orders" onClick={() => setMenuOpen(false)} className="flex items-center gap-2 text-xl ">
+              🧾 Orders
             </Link>
             {user ? (
               <button onClick={handleLogout} className="bg-black text-white px-3 py-1 rounded hover:bg-yellow-500 hover:text-black">

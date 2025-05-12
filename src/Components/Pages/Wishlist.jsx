@@ -37,7 +37,7 @@ function Wishlist() {
 
       refreshWishlist();
       setWishlist(updatedWishlist);
-      toast.success('Item removed from wishlist');
+      toast.info('Item removed from wishlist');
     } catch (error) {
       console.error('Error removing item from wishlist:', error);
       toast.error('Error removing item from wishlist');
@@ -46,7 +46,7 @@ function Wishlist() {
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
-      <h2 className="text-2xl font-bold text-center mb-6">Your Wishlist</h2>
+      <h2 className="text-2xl font-bold text-center mt-15 mb-6">Your Wishlist</h2>
       {wishlist.length === 0 ? (
         <p className="text-center text-gray-600">Your wishlist is empty.</p>
       ) : (

@@ -46,12 +46,6 @@ const { refreshWishlist } = useWishlist();
       } else {
         alert("User not found. Please sign up first.");
       }
-      // const user = res.data
-      // localStorage.setItem("user", JSON.stringify(user));
-      // alert("Login successful!");
-      // navigate("/");
-
-
 
     } catch (err) {
       console.error(err);
