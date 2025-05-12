@@ -3,6 +3,7 @@ import { FaShoppingCart, FaHome, FaHeart, FaBars, FaTimes } from 'react-icons/fa
 import { useEffect, useState } from 'react';
 import { useCart, useCartCount } from '../CartContext';
 import { useWishlist, useWishlistCount } from '../WishlistContext';
+import { toast } from 'react-toastify';
 
 
 function Navbar() {
@@ -26,6 +27,8 @@ function Navbar() {
     setUser(null);
     refreshCart();
     refreshWishlist();
+    toast.info("you were logouted")
+
     navigate('/');
     setMenuOpen(false);
   };
@@ -96,7 +99,7 @@ function Navbar() {
   </Link>
 
   <Link to="/orders" className="flex items-center space-x-1 text-md text-white">
-    <span>🧾</span>  {/* Optional icon for Orders */}
+    <span> 🛒</span>  {/* Optional icon for Orders */}
     <span>Orders</span>
   </Link>
 

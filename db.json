@@ -21,61 +21,57 @@
           ],
           "quantity": 1
         }
-      ],
-      "orders": []
+      ]
     },
     {
       "id": "d1a9",
       "name": "sidha",
       "email": "sidhasamad@gmail.com",
       "password": "1234567890",
-      "cart": [
+      "orders": [],
+      "wishlist": [
         {
-          "productId": "12",
-          "name": "Brazil Football jersey Neymar",
-          "price": "650",
-          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQNBmwP6mvbTIHfwGqWosoaHAeIGnR5tof6raK-HFK7R9sRj9dEnpMSvrowwMIYzL3NNDBgDks9HQG2_3xK856qij9iE3GfPLxW0vplgMykDTY75oy6Bd4TFA",
-          "size": [
-            "S",
-            "M",
-            "L",
-            "XL"
-          ],
-          "quantity": 1
+          "productId": "7",
+          "name": "Tyka Football- Basic Socks | Red",
+          "price": "180",
+          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSpvApf5ZEPjdQz0BBBQ8S0HCkcUmFvGH2uvOVya4D60DT4-x9PmgNiXztYoHwRwDfqxAwGm9ZhPaHyuK9_7X-2XKtGVZMpkhNh8ac6rKfo",
+          "category": "Socks",
+          "rating": 4.2
         },
         {
-          "productId": "1",
-          "name": "Adidas Predator 2025",
-          "price": "999",
-          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT5XpK9N72zZO3YcPLJRmmXWvvsI08bPBs1iUp9vyZF-U1U38GK-y4sUhXXCXvhP7GTm4tkAfHUoG7s6PsnVtreBFyyPlyl6Zel9Y-ZkyUs-wdvMwibw9rcNrM",
-          "quantity": 1
+          "productId": "8",
+          "name": "Nike Men's Lamine Yamal Home Authentic Player Jersey",
+          "price": "875",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ5yZe1yW8ZYJKWoxhMwCBtZYOQejkYc5-WkfLwPOD9b1pS-iMpHWfchUgRCUGr6ZXdt0wr_dtPjGjT4XSan7_ZHap0DotyLnqZFTkqBG_DqQ5F82jgT-vz",
+          "category": "Jerseys",
+          "rating": 4.2
         },
         {
-          "productId": "4",
-          "name": "NIKE Soccer Ball - FIFA Approved",
-          "price": "1249",
-          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBnRUVH8QeLG8ppTlaUR7ed5kjW0G6U7dwfQ&s",
-          "quantity": 1
+          "productId": "10",
+          "name": "Axpro Cr7 Ronaldo Ankle Synthetic Tpu Studs Football Shoes",
+          "price": "1020",
+          "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQK54G_vnv3dp44zunclUiYb3j9uK7lo4L7U62Z2mgEu3dxRRlF-TteUhGrmu70dhHDgEZWoMmF-NMkS3ObH4FUr2sEnH3ZudFyWGJDznvqajuoJGFsClHjAw",
+          "category": "Boots",
+          "rating": 4.2
         },
         {
           "productId": "11",
           "name": "Aussie Rules Football Hygiene Water Bottle [1 Litre]",
           "price": "110",
           "image": "https://nwscdn.com/media/catalog/product/cache/h900xw900/t/e/team_hygiene_water_bottle_01_4.jpg",
-          "quantity": 1
-        }
-      ],
-      "orders": [],
-      "wishlist": [
+          "category": "Shin pads",
+          "rating": 4.2
+        },
         {
-          "productId": "1",
-          "name": "Adidas Predator 2025",
-          "price": "999",
-          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT5XpK9N72zZO3YcPLJRmmXWvvsI08bPBs1iUp9vyZF-U1U38GK-y4sUhXXCXvhP7GTm4tkAfHUoG7s6PsnVtreBFyyPlyl6Zel9Y-ZkyUs-wdvMwibw9rcNrM",
-          "category": "Boots",
+          "productId": "12",
+          "name": "Brazil Football jersey Neymar",
+          "price": "650",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQNBmwP6mvbTIHfwGqWosoaHAeIGnR5tof6raK-HFK7R9sRj9dEnpMSvrowwMIYzL3NNDBgDks9HQG2_3xK856qij9iE3GfPLxW0vplgMykDTY75oy6Bd4TFA",
+          "category": "Jerseys",
           "rating": 4.2
         }
-      ]
+      ],
+      "cart": []
     },
     {
       "id": "80bf",
@@ -84,6 +80,375 @@
       "password": "123456",
       "cart": [],
       "wishlist": []
+    },
+    {
+      "id": "98c8",
+      "name": "saheer",
+      "email": "saheer@gmail.com",
+      "password": "123456",
+      "cart": [],
+      "wishlist": []
+    }
+  ],
+  "admins":[],
+  "orders": [
+    {
+      "id": "5604",
+      "userId": "d1a9",
+      "items": [
+        {
+          "productId": "3",
+          "name": "NIVIA Goalkeeper Gloves",
+          "price": 350,
+          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSZesME9ofwmlFTkC4p0CW4WEbWK42YuEdB1AevVLNfLV88W3Ef_EqOvxJxSod7E_J0hwchs92KcJZY1pj_rcN3Z6nmWB7ZZQLHGN-8FfbABKYoElf6y9GjN0EGXcDFPqoSgPbp5vSAeg&usqp=CAc",
+          "size": [
+            "M",
+            "L",
+            "XL"
+          ],
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 400,
+      "paymentMethod": "Cash on Delivery",
+      "cardDetails": null,
+      "status": "Cancelled",
+      "date": "2025-05-12T04:31:48.090Z",
+      "cancellationReason": "hvvnbvanbva"
+    },
+    {
+      "id": "b6e6",
+      "userId": "80bf",
+      "items": [
+        {
+          "productId": "8",
+          "name": "Nike Men's Lamine Yamal Home Authentic Player Jersey",
+          "price": 875,
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ5yZe1yW8ZYJKWoxhMwCBtZYOQejkYc5-WkfLwPOD9b1pS-iMpHWfchUgRCUGr6ZXdt0wr_dtPjGjT4XSan7_ZHap0DotyLnqZFTkqBG_DqQ5F82jgT-vz",
+          "size": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 875,
+      "paymentMethod": "Debit/Credit Card",
+      "cardDetails": {
+        "name": "yasar",
+        "number": "5454512151215122",
+        "expiry": "02/2030",
+        "cvv": "123"
+      },
+      "status": "Cancelled",
+      "date": "2025-05-12T04:33:35.823Z",
+      "cancellationReason": "i dont like this jersey"
+    },
+    {
+      "id": "29b5",
+      "userId": "80bf",
+      "items": [
+        {
+          "productId": "8",
+          "name": "Nike Men's Lamine Yamal Home Authentic Player Jersey",
+          "price": 875,
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ5yZe1yW8ZYJKWoxhMwCBtZYOQejkYc5-WkfLwPOD9b1pS-iMpHWfchUgRCUGr6ZXdt0wr_dtPjGjT4XSan7_ZHap0DotyLnqZFTkqBG_DqQ5F82jgT-vz",
+          "size": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 925,
+      "paymentMethod": "Cash on Delivery",
+      "cardDetails": null,
+      "status": "Cancelled",
+      "date": "2025-05-12T05:17:27.394Z",
+      "cancellationReason": "ordered accidently"
+    },
+    {
+      "id": "ec30",
+      "userId": "80bf",
+      "items": [
+        {
+          "productId": "11",
+          "name": "Aussie Rules Football Hygiene Water Bottle [1 Litre]",
+          "price": 110,
+          "image": "https://nwscdn.com/media/catalog/product/cache/h900xw900/t/e/team_hygiene_water_bottle_01_4.jpg",
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 160,
+      "paymentMethod": "Cash on Delivery",
+      "cardDetails": null,
+      "status": "Paid",
+      "date": "2025-05-12T05:29:38.447Z"
+    },
+    {
+      "id": "e2fa",
+      "userId": "80bf",
+      "items": [
+        {
+          "productId": "3",
+          "name": "NIVIA Goalkeeper Gloves",
+          "price": 350,
+          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSZesME9ofwmlFTkC4p0CW4WEbWK42YuEdB1AevVLNfLV88W3Ef_EqOvxJxSod7E_J0hwchs92KcJZY1pj_rcN3Z6nmWB7ZZQLHGN-8FfbABKYoElf6y9GjN0EGXcDFPqoSgPbp5vSAeg&usqp=CAc",
+          "size": [
+            "M",
+            "L",
+            "XL"
+          ],
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 400,
+      "paymentMethod": "Cash on Delivery",
+      "cardDetails": null,
+      "status": "Cancelled",
+      "date": "2025-05-12T05:43:19.889Z",
+      "expectedDeliveryDate": "2025-05-15T05:43:19.889Z",
+      "cancellationReason": "sgvgvs"
+    },
+    {
+      "id": "c2f0",
+      "userId": "80bf",
+      "items": [
+        {
+          "productId": "13",
+          "name": "Adidas X crazyfast League Laceless Firm Ground Fooball Kids Unisex Shoes -Solar Red",
+          "price": 1055,
+          "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQQaXuX8azKZxAu69fGZ5xfjYz12rbLEhl-ET78hoUj4hiGc1p9_JDKjp-vtTlZVm1xUGDLMX7zA_jsVsJfP21yKiVRDOVz7zp9pgyGZfznEXJCyDxRnszUjy8",
+          "size": [
+            38,
+            40,
+            42,
+            44
+          ],
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 1105,
+      "paymentMethod": "Cash on Delivery",
+      "cardDetails": null,
+      "status": "Paid",
+      "date": "2025-05-12T06:27:42.717Z",
+      "expectedDeliveryDate": "2025-05-15T06:27:42.717Z"
+    },
+    {
+      "id": "5d6a",
+      "userId": "80bf",
+      "items": [
+        {
+          "productId": "7",
+          "quantity": 1,
+          "name": "Tyka Football- Basic Socks | Red",
+          "price": "180",
+          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSpvApf5ZEPjdQz0BBBQ8S0HCkcUmFvGH2uvOVya4D60DT4-x9PmgNiXztYoHwRwDfqxAwGm9ZhPaHyuK9_7X-2XKtGVZMpkhNh8ac6rKfo",
+          "category": "Socks",
+          "rating": 4.2
+        },
+        {
+          "productId": "8",
+          "quantity": 1,
+          "name": "Nike Men's Lamine Yamal Home Authentic Player Jersey",
+          "price": "875",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ5yZe1yW8ZYJKWoxhMwCBtZYOQejkYc5-WkfLwPOD9b1pS-iMpHWfchUgRCUGr6ZXdt0wr_dtPjGjT4XSan7_ZHap0DotyLnqZFTkqBG_DqQ5F82jgT-vz",
+          "category": "Jerseys",
+          "rating": 4.2
+        },
+        {
+          "productId": "3",
+          "quantity": 1,
+          "name": "NIVIA Goalkeeper Gloves",
+          "price": "350",
+          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSZesME9ofwmlFTkC4p0CW4WEbWK42YuEdB1AevVLNfLV88W3Ef_EqOvxJxSod7E_J0hwchs92KcJZY1pj_rcN3Z6nmWB7ZZQLHGN-8FfbABKYoElf6y9GjN0EGXcDFPqoSgPbp5vSAeg&usqp=CAc",
+          "category": "Gloves",
+          "rating": 4.2
+        }
+      ],
+      "totalAmount": 1455,
+      "paymentMethod": "Cash on Delivery",
+      "cardDetails": null,
+      "status": "Cancelled",
+      "date": "2025-05-12T06:56:57.899Z",
+      "expectedDeliveryDate": "2025-05-15T06:56:57.899Z",
+      "cancellationReason": "svxshbxbn"
+    },
+    {
+      "id": "2825",
+      "userId": "80bf",
+      "items": [
+        {
+          "productId": "8",
+          "quantity": 1,
+          "name": "Nike Men's Lamine Yamal Home Authentic Player Jersey",
+          "price": "875",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ5yZe1yW8ZYJKWoxhMwCBtZYOQejkYc5-WkfLwPOD9b1pS-iMpHWfchUgRCUGr6ZXdt0wr_dtPjGjT4XSan7_ZHap0DotyLnqZFTkqBG_DqQ5F82jgT-vz",
+          "category": "Jerseys",
+          "rating": 4.2
+        }
+      ],
+      "totalAmount": 925,
+      "paymentMethod": "Cash on Delivery",
+      "cardDetails": null,
+      "status": "Paid",
+      "date": "2025-05-12T11:02:56.918Z",
+      "expectedDeliveryDate": "2025-05-15T11:02:56.919Z"
+    },
+    {
+      "id": "fb3b",
+      "userId": "80bf",
+      "items": [
+        {
+          "productId": "15",
+          "name": "Puma ULTRA 5 MATCH+ FG/AG Unisex Football Shoes",
+          "price": 850,
+          "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSGl1QC1bbwPq7FnwuHKvlAAstKTBluAjsZC5M6QHLkpxF4k7A_WWZnhL0HdizIJrgo5JOCQ37xXXA1SJngEIuGWkkMyb45ZNIUU3o7lWuxzA9fny6LvoXC1w",
+          "size": [
+            38,
+            40,
+            42,
+            44
+          ],
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 900,
+      "paymentMethod": "Cash on Delivery",
+      "cardDetails": null,
+      "status": "Paid",
+      "date": "2025-05-12T11:05:32.572Z",
+      "expectedDeliveryDate": "2025-05-15T11:05:32.572Z"
+    },
+    {
+      "id": "d898",
+      "userId": "98c8",
+      "items": [
+        {
+          "productId": "4",
+          "quantity": 1,
+          "name": "NIKE Soccer Ball - FIFA Approved",
+          "price": "1249",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBnRUVH8QeLG8ppTlaUR7ed5kjW0G6U7dwfQ&s",
+          "category": "Balls",
+          "rating": 4.2
+        }
+      ],
+      "totalAmount": 1249,
+      "paymentMethod": "Debit/Credit Card",
+      "cardDetails": {
+        "name": "Saheer",
+        "number": "4546513156456111",
+        "expiry": "02/2029",
+        "cvv": "655"
+      },
+      "status": "Paid",
+      "date": "2025-05-12T11:19:50.073Z",
+      "expectedDeliveryDate": "2025-05-15T11:19:50.073Z"
+    },
+    {
+      "id": "e7d7",
+      "userId": "98c8",
+      "items": [
+        {
+          "productId": "22",
+          "name": "CR7 AlNassr jersey yellow",
+          "price": 860,
+          "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRLgGVdgyFOBQhXPs6BTQRHSw3P3Pn29Qa5WJvrT-yGsZjxR_Qy_NT0V5Gjlb_I6BVm2W69Hxu6WZtbeQG58BoUw_F000CMu1pTDdeWcE32DJ4WJZ73b0PVVg",
+          "size": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 910,
+      "paymentMethod": "Cash on Delivery",
+      "cardDetails": null,
+      "status": "Paid",
+      "date": "2025-05-12T11:31:46.127Z",
+      "expectedDeliveryDate": "2025-05-15T11:31:46.127Z"
+    },
+    {
+      "id": "8bac",
+      "userId": "d1a9",
+      "items": [
+        {
+          "productId": "7",
+          "name": "Tyka Football- Basic Socks | Red",
+          "price": 180,
+          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSpvApf5ZEPjdQz0BBBQ8S0HCkcUmFvGH2uvOVya4D60DT4-x9PmgNiXztYoHwRwDfqxAwGm9ZhPaHyuK9_7X-2XKtGVZMpkhNh8ac6rKfo",
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 230,
+      "paymentMethod": "Cash on Delivery",
+      "cardDetails": null,
+      "status": "Paid",
+      "date": "2025-05-12T12:14:30.016Z",
+      "expectedDeliveryDate": "2025-05-15T12:14:30.016Z"
+    },
+    {
+      "id": "6868",
+      "userId": "d1a9",
+      "items": [
+        {
+          "productId": "5",
+          "name": "MESSI Inter Miami Jersey 2025",
+          "price": 700,
+          "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR-GeaREMGH40fIlK077auTMo6GpU1p2lidIcwXXIsF7r16_ieY-ypQi8pbR1OS-1ozFm-q8n40SMo5ck1aNm1SN9cQBo1tEghqJVJUwbmCoOIjE-X-HQN3HA",
+          "size": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 750,
+      "paymentMethod": "Cash on Delivery",
+      "cardDetails": null,
+      "status": "Paid",
+      "date": "2025-05-12T12:15:39.386Z",
+      "expectedDeliveryDate": "2025-05-15T12:15:39.386Z"
+    },
+    {
+      "id": "2ca6",
+      "userId": "d1a9",
+      "items": [
+        {
+          "productId": "29",
+          "name": "AL HILAL New jersey",
+          "price": 520,
+          "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTT9hu2yMD0XnFSYSyFEt-1lgvK26PSMOIhXr-cUy5YW05Ks8HgK8h538Y4hpTlls4GoKZXn3BaT2ZRITCwOOdXPcDeo4zt1uuwvB9VfCmylNMaAbb63Ll7Kg",
+          "size": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 520,
+      "paymentMethod": "Debit/Credit Card",
+      "cardDetails": {
+        "name": "arshad",
+        "number": "1113353212113111",
+        "expiry": "02/2029",
+        "cvv": "451"
+      },
+      "status": "Paid",
+      "date": "2025-05-12T12:25:07.469Z",
+      "expectedDeliveryDate": "2025-05-15T12:25:07.469Z"
     }
   ],
   "products": [

@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
+import { toast } from 'react-toastify';
+import Lottie from "lottie-react";
+import loadingAnimation from "../../animations/loading.json";
+import successAnimation from "../../animations/success.json";
+import { useCart } from "../../CartContext";
 
 const PaymentPage = () => {
+  const { refreshCart } = useCart();
   const navigate = useNavigate();
   const location = useLocation();
   const { cartItems, totalAmount, userId } = location.state || {};
+  
 
   const [paymentMethod, setPaymentMethod] = useState("Cash on Delivery");
   const [cardDetails, setCardDetails] = useState({
@@ -15,23 +22,35 @@ const PaymentPage = () => {
     cvv: ""
   });
 
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  useEffect(() => {
+    if (!cartItems || !userId || !totalAmount) {
+      toast.info("Invalid access to payment page. Redirecting...");
+      navigate("/cart");
+    }
+  }, []);
+
   const handleCardChange = (e) => {
     setCardDetails({ ...cardDetails, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async () => {
     if (!cartItems?.length) {
-      alert("Your cart is empty!");
+      toast.info("Your cart is empty!");
       return;
     }
 
     if (paymentMethod === "Debit/Credit Card") {
       const { name, number, expiry, cvv } = cardDetails;
       if (!name || !number || !expiry || !cvv) {
-        alert("Please fill in all card details.");
+        toast.info("Please fill in all card details.");
         return;
       }
     }
+
+    setIsLoading(true);
 
     try {
       const orderData = {
@@ -41,58 +60,98 @@ const PaymentPage = () => {
         paymentMethod,
         cardDetails: paymentMethod === "Debit/Credit Card" ? cardDetails : null,
         status: "Paid",
-        date: new Date().toISOString()
+        date: new Date().toISOString(),
+        expectedDeliveryDate: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString()
       };
 
       await axios.post("http://localhost:5000/orders", orderData);
+      await axios.patch(`http://localhost:5000/users/${userId}`, { cart: [] });
 
-      await axios.patch(`http://localhost:5000/users/${userId}`, {
-        cart: []
-      });
+      setTimeout(() => {
+        setIsLoading(false);
+        setIsSuccess(true);
 
-      alert("Payment successful! Order placed.");
-      navigate("/orders");
+        toast.success("Payment successful! Order placed.");
+          refreshCart();
 
+        setTimeout(() => {
+          navigate("/orders");
+        }, 2500); // 2.5s after success animation
+      }, 4000); // 2s loading spinner
     } catch (error) {
       console.error("Error placing order", error);
-      alert("Something went wrong while processing your payment.");
+      toast.error("Something went wrong while processing your payment.");
+      setIsLoading(false);
     }
   };
 
+  const deliveryDate = new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toLocaleDateString();
+
+  // ⏳ Loading State
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Lottie animationData={loadingAnimation} loop={true} style={{ width: 250, height: 250 }} />
+      </div>
+    );
+  }
+
+  // Success State
+  if (isSuccess) {
+    return (
+      <div className="flex flex-col justify-center items-center h-screen">
+        <Lottie animationData={successAnimation} loop={false} style={{ width: 500, height: 500 }} />
+        <p className="text-green-600 text-xl mt-4 font-semibold">Payment Successful!</p>
+      </div>
+    
+      
+    );
+  }
+
+  // 🧾 Default Payment Form
   return (
     <div className="max-w-2xl mx-auto mt-10 p-7 shadow-lg rounded-xl bg-white">
-      <h2 className="text-2xl font-bold mb-6">Payment Page</h2>
+      <h2 className="text-3xl font-bold  mb-6 text-gray-800">Payment Page</h2>
 
-      <div className="mb-4">
-        <h3 className="font-semibold">Order Summary:</h3>
-        {cartItems?.map((item, index) => (
-          <div key={index} className="flex justify-between mt-2">
-            <span>{item.name}</span>
-            <span>₹{item.price} × {item.quantity}</span>
-          </div>
-        ))}
-        <hr className="my-4" />
-        <div className="flex justify-between font-bold text-lg">
-          <span>Total:</span>
-          <span>₹{paymentMethod === "Cash on Delivery" ? totalAmount + 50 : totalAmount}</span>
-        </div>
+      <div className="mb-6">
+        <h3 className="text-xl font-semibold text-gray-700 mb-2">Order Summary:</h3>
+        {!cartItems?.length ? (
+          <p className="text-red-500">Your cart is empty.</p>
+        ) : (
+          <>
+            {cartItems.map((item, index) => (
+              <div key={index} className="flex justify-between mt-1 text-gray-600">
+                <span>{item.name}</span>
+                <span>₹{item.price} × {item.quantity}</span>
+              </div>
+            ))}
+            <hr className="my-4" />
+            <div className="flex justify-between font-bold text-lg text-gray-800">
+              <span>Total:</span>
+              <span>₹{paymentMethod === "Cash on Delivery" ? totalAmount + 50 : totalAmount}</span>
+            </div>
+            <p className="text-sm text-gray-600 mt-2">
+              Expected Delivery: {deliveryDate}
+            </p>
+          </>
+        )}
       </div>
 
       <div className="mb-6">
-        <h3 className="font-semibold mb-2">Select Payment Method:</h3>
+        <h3 className="text-xl font-semibold text-gray-700 mb-2">Select Payment Method:</h3>
         {["UPI", "Debit/Credit Card", "Cash on Delivery"].map((method) => (
-          <label className="block mb-2" key={method}>
+          <label className="block mb-2 text-gray-600" key={method}>
             <input
               type="radio"
               name="payment"
               value={method}
               checked={paymentMethod === method}
               onChange={(e) => setPaymentMethod(e.target.value)}
+              className="mr-2"
             />
-            <span className="ml-2">{method}</span>
+            {method}
           </label>
         ))}
-
         {paymentMethod === "Cash on Delivery" && (
           <p className="text-sm text-red-500 mt-1">Note: ₹50 extra charge for Cash on Delivery</p>
         )}
@@ -100,7 +159,7 @@ const PaymentPage = () => {
 
       {paymentMethod === "Debit/Credit Card" && (
         <div className="bg-gray-100 p-4 rounded mb-6">
-          <h4 className="font-semibold mb-2">Enter Card Details:</h4>
+          <h4 className="font-semibold mb-3 text-gray-700">Enter Card Details:</h4>
           <input
             type="text"
             name="name"
@@ -142,7 +201,7 @@ const PaymentPage = () => {
       )}
 
       <button
-        className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
+        className="w-full bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition font-semibold"
         onClick={handleSubmit}
       >
         Pay ₹{paymentMethod === "Cash on Delivery" ? totalAmount + 50 : totalAmount}

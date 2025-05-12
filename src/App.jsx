@@ -1,6 +1,6 @@
 import React from 'react';
 import Home from './Components/Pages/Home';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Cart from './Components/Pages/Cart/Cart';
 import Login from './Components/Pages/Login/Login';
 import Wishlist from './Components/Pages/Wishlist';
@@ -11,19 +11,20 @@ import ProductListing from './Components/Productlist/ProductListing';
 import Orders from './Components/Orders/Oders';
 import Payment from './Components/Payment/Payment';
 import { ToastContainer } from 'react-toastify';
-
-
-
-
-
-
+import Footer from './Components/Footer';
 
 
 function App() {
+   const location = useLocation()
+  const hideNavbarRoutes = ['/login', '/signup'];
+  const hideFooterRoutes=['/login','/signup']
   return (
+     
        <>
+          {!hideNavbarRoutes.includes(location.pathname) && <Navbar />}
        
-       <Navbar />
+       
+      
        <Routes>
         <Route path='/' element={<Home />} />
         <Route path='cart' element={<Cart />} />
@@ -37,6 +38,8 @@ function App() {
        
        </Routes>
         <ToastContainer position="top-right" autoClose={1000} />
+           {!hideFooterRoutes.includes(location.pathname) && <Footer />}
+       
 
 
         

@@ -3,6 +3,7 @@ import { Formik, Form, Field } from 'formik';
 import { SignupValidation } from '../../SignupValidation';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const initialValues = {
   name: '',
@@ -18,7 +19,7 @@ function SignUp() {
     try {
       const res = await axios.get(`http://localhost:5000/users?email=${values.email}`);
       if (res.data.length > 0) {
-        alert("You already have an account!");
+        toast.info("You already have an account!");
         navigate("/login");
         return;
       }
@@ -32,11 +33,11 @@ function SignUp() {
       };
 
       await axios.post('http://localhost:5000/users', newUser);
-      alert("Signup successful!");
+      toast.success("Signup successful!");
       navigate("/login");
     } catch (err) {
       console.error(err);
-      alert("Signup failed.");
+      toast.error("Signup failed.");
     }
   };
 

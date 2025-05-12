@@ -76,7 +76,7 @@ function Cart() {
   return (
     <div className="max-w-6xl mx-auto py-20 px-4 grid gap-6">
       {cartItems.length === 0 ? (
-        <p className="text-center text-gray-600 text-xl">Your cart is empty.</p>
+        <p className="text-center text-gray-600 text-xl mb-20">Your cart is empty.</p>
       ) : (
         cartItems.map(item => (
           <div key={item.productId} className="bg-white rounded-xl shadow-md flex flex-col md:flex-row items-center p-5 gap-6">

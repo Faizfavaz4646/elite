@@ -45,12 +45,14 @@ function Wishlist() {
   };
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
-      <h2 className="text-2xl font-bold text-center mt-15 mb-6">Your Wishlist</h2>
+    <div className="min-h-screen flex flex-col items-center justify-start px-4 pt-24">
+
+      <h2 className="text-2xl font-bold text-center mt-10 mb-6">Your Wishlist</h2>
+
       {wishlist.length === 0 ? (
-        <p className="text-center text-gray-600">Your wishlist is empty.</p>
+        <p className="text-center text-gray-600 mb-10">Your wishlist is empty.</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-10 w-full max-w-6xl">
           {wishlist.map((item) => (
             <div
               key={item.productId}
@@ -68,7 +70,7 @@ function Wishlist() {
               </Link>
               <button
                 onClick={() => removeFromWishlist(item.productId)}
-                className="absolute top-2 right-2 text-red-600 hover:underline"
+                className="absolute bottom-3 right-2 text-red-600 px-6 py-2 rounded hover:bg-red-200"
               >
                 Remove
               </button>

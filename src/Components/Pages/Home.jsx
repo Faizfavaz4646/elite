@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import MiniCategoryNav from '../MiniCategoryNav';
 import ImageSlider from '../ImageSlider';
 import ProductListing from '../Productlist/ProductListing';
-import Footer from '../Footer';
+
 import EliteElevenGoldenEmblem from '../../assets/images/Elite Eleven Golden Emblem.png';
 
 function Home() {
@@ -39,7 +39,7 @@ function Home() {
   <ImageSlider />
   <MiniCategoryNav onCategorySelect={setSelectedCategory} />
   <ProductListing selectedCategory={selectedCategory} />
-  <Footer />
+  
 </main>
 
   );

@@ -44,12 +44,12 @@ const { refreshWishlist } = useWishlist();
         refreshWishlist();
         navigate("/");
       } else {
-        alert("User not found. Please sign up first.");
+        toast.info("User not found. Please sign up first.");
       }
 
     } catch (err) {
       console.error(err);
-      alert("Login error");
+      toast.error("Login error");
     }
   };
 
