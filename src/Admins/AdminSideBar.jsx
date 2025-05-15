@@ -8,29 +8,18 @@ const AdminSideBar = () => {
   const location = useLocation();
 
   const handleLogout = () => {
-    localStorage.removeItem("user"); // Clear user session
-    navigate("/login"); // Redirect to login
+    localStorage.removeItem("user");
+    navigate("/login");
   };
 
   const isActive = (path) => location.pathname === path;
 
   return (
-    <>
-      {/* Mobile Menu Button */}
-      <div className="fixed top-4 left-4 z-50 sm:hidden">
-        <button
-          onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="text-white bg-gray-800 p-2 rounded focus:outline-none"
-        >
-          {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Sidebar */}
+    <div className="min-h-screen flex bg-gray-100 sticky">
+      {/* Sidebar*/}
       <aside
-        className={`fixed top-0 left-0 h-full w-64 bg-[#2e3a59] text-white p-6 z-40 transform transition-transform duration-300 ease-in-out sm:static sm:translate-x-0 ${
-          sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        }`}
+        className={`bg-[#2e3a59] text-white w-64 p-6 z-40 
+        ${sidebarOpen ? 'block' : 'hidden'} sm:block`}
       >
         <h2 className="text-xl font-bold mb-6 border border-white p-2 rounded text-center bg-gray-700">
           Admin Panel
@@ -60,7 +49,6 @@ const AdminSideBar = () => {
           >
             Manage Orders
           </Link>
-        
           <Link
             to="/admin/products"
             className={`block px-4 py-2 rounded ${
@@ -78,19 +66,22 @@ const AdminSideBar = () => {
         </nav>
       </aside>
 
-      {/* Mobile Overlay */}
-      {sidebarOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-30 sm:hidden"
-          onClick={() => setSidebarOpen(false)}
-        />
-      )}
+      {/* Main Content Area */}
+      <div className="flex-1 p-4 overflow-auto">
+        {/* Mobile toggle button */}
+        <div className="sm:hidden mb-4">
+          <button
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="bg-gray-800 text-white p-2 rounded"
+          >
+            {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
 
-      {/* Main Content */}
-      <main className="flex-1 bg-gray-100 min-h-screen p-4 sm:ml-64 pt-16 sm:pt-4">
+        {/* Outlet renders the admin content */}
         <Outlet />
-      </main>
-    </>
+      </div>
+    </div>
   );
 };
 

@@ -22,7 +22,8 @@
           ],
           "quantity": 1
         }
-      ]
+      ],
+      "isBlocked": false
     },
     {
       "id": "2",

@@ -24,7 +24,7 @@ import AdminSideBar from './Admins/AdminSideBar';
 
 function App() {
   const location = useLocation();
-  const hideNavbarRoutes = ['/login', '/signup','/admin/dashboard','/admin/products','/admin/products/add','/admin/user/manage'];
+  const hideNavbarRoutes = ['/login', '/signup','/admin/dashboard','/admin/products','/admin/products/add','/admin/user/manage','/admin/manage/order'];
   const hideNavbar = hideNavbarRoutes.includes(location.pathname) || location.pathname.startsWith('/admin/edit-product/');
   const hideFooterRoutes = ['/login', '/signup'];
 
@@ -60,12 +60,12 @@ function App() {
       </PrivateRoute>
     }
   >
-    <Route path="dashboard" element={<AdminDashboard />} />
-    <Route path="products" element={<AdminProductList />} />
-    <Route path="products/add" element={<AddProduct />} />
+    <Route path='/admin/dashboard' element={<AdminDashboard />} />
+    <Route path='/admin/products' element={<AdminProductList />} />
+    <Route path="admin/products/add" element={<AddProduct />} />
     <Route path="edit-product/:id" element={<EditProduct />} />
-    <Route path="manage/order" element={<AdminManageOrders />} />
-    <Route path="user/manage" element={<AdminUserManagement />} />
+    <Route path="/admin/manage/order" element={<AdminManageOrders />} />
+    <Route path="/admin/user/manage" element={<AdminUserManagement />} />
   </Route>
 
   {/* Redirect to login on logout */}

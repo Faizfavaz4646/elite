@@ -89,8 +89,19 @@ const AdminDashboard = () => {
           <p className="text-4xl font-bold text-red-500">{orderCount}</p>
         </div>
       </div>
+       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+        <Link to="/admin/products" className="bg-green-600 text-white text-center py-4 rounded-lg hover:bg-green-700">
+          Manage Products
+        </Link>
+        <Link to="/admin/manage/order" className="bg-red-600 text-white text-center py-4 rounded-lg hover:bg-red-700">
+          Manage Orders
+        </Link>
+        <Link to="/admin/user/manage" className="bg-blue-600 text-white text-center py-4 rounded-lg hover:bg-blue-700">
+          Manage Users
+        </Link>
+      </div>
 
-      <h2 className="text-xl font-semibold mb-4">Sales Graph</h2>
+      <h2 className="text-xl font-semibold mb-2">Sales Graph</h2>
       <div className="bg-white p-4 rounded-xl shadow-md mb-10">
         <ResponsiveContainer width="100%" height={300}>
           <LineChart data={salesData}>
@@ -109,17 +120,7 @@ const AdminDashboard = () => {
         </ResponsiveContainer>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <Link to="/admin/products" className="bg-green-600 text-white text-center py-4 rounded-lg hover:bg-green-700">
-          Manage Products
-        </Link>
-        <Link to="/admin/manage/order" className="bg-red-600 text-white text-center py-4 rounded-lg hover:bg-red-700">
-          Manage Orders
-        </Link>
-        <Link to="/admin/user/manage" className="bg-blue-600 text-white text-center py-4 rounded-lg hover:bg-blue-700">
-          Manage Users
-        </Link>
-      </div>
+     
     </div>
   );
 };
