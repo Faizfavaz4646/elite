@@ -8,7 +8,8 @@ function Orders() {
   const [cancelReason, setCancelReason] = useState('');
   const [selectOrderId, setSelectOrderId] = useState(null);
   const [showSummaryId, setShowSummaryId] = useState(null);
-  const [showCancelled, setShowCancelled] = useState(false); // toggle state
+  const [showCancelled, setShowCancelled] = useState(false);
+  const [stockData, setStockData] = useState([]);
 
   const currentUser = JSON.parse(localStorage.getItem('user'));
   const currentUserId = currentUser?.id;
@@ -19,19 +20,34 @@ function Orders() {
         .get(`http://localhost:5000/orders?userId=${currentUserId}`)
         .then((res) => setOrders(res.data))
         .catch((err) => console.error('Error fetching orders:', err));
+
+      axios
+        .get('http://localhost:5000/products')
+        .then((res) => setStockData(res.data))
+        .catch((err) => console.error('Error fetching product stock:', err));
     }
   }, [currentUserId]);
 
-  const handleCancelOrder = async (orderId) => {
+  const handleCancelOrder = async (orderId, orderItems) => {
     if (!cancelReason) return alert('Please enter a reason for cancellation.');
+
     try {
       await axios.patch(`http://localhost:5000/orders/${orderId}`, {
         status: 'Cancelled',
         cancellationReason: cancelReason,
       });
 
-      setOrders((prevOrders) =>
-        prevOrders.map((order) =>
+      for (let item of orderItems) {
+        const product = stockData.find((prod) => prod.id === item.id);
+        if (product) {
+          await axios.patch(`http://localhost:5000/products/${item.id}`, {
+            stock: product.stock + item.quantity,
+          });
+        }
+      }
+
+      setOrders((prev) =>
+        prev.map((order) =>
           order.id === orderId
             ? { ...order, status: 'Cancelled', cancellationReason: cancelReason }
             : order
@@ -43,7 +59,46 @@ function Orders() {
       setSelectOrderId(null);
     } catch (error) {
       toast.error('Error Cancelling Order');
-      console.error('Error Cancelling Order', error);
+      console.error('Cancel error:', error);
+    }
+  };
+
+  const handlePlaceOrder = async (cartItems) => {
+    try {
+      // Validate stock before placing
+      for (let item of cartItems) {
+        const product = stockData.find((prod) => prod.id === item.id);
+        if (!product || product.stock < item.quantity) {
+          toast.error(`Not enough stock for "${item.name}". Available: ${product?.stock ?? 0}`);
+          return;
+        }
+      }
+
+      const orderData = {
+        userId: currentUserId,
+        items: cartItems,
+        status: 'Pending',
+        date: new Date().toISOString(),
+        paymentMethod: 'Cash on Delivery',
+        totalAmount: cartItems.reduce((total, item) => total + item.price * item.quantity, 0),
+      };
+
+      const response = await axios.post('http://localhost:5000/orders', orderData);
+
+      // Deduct stock
+      for (let item of cartItems) {
+        const product = stockData.find((prod) => prod.id === item.id);
+        if (product) {
+          await axios.patch(`http://localhost:5000/products/${item.id}`, {
+            stock: product.stock - item.quantity,
+          });
+        }
+      }
+
+      toast.success('Order placed successfully!');
+    } catch (error) {
+      toast.error('Error placing the order');
+      console.error('Place order error:', error);
     }
   };
 
@@ -115,7 +170,7 @@ function Orders() {
                 placeholder="Enter cancellation reason"
               />
               <button
-                onClick={() => handleCancelOrder(order.id)}
+                onClick={() => handleCancelOrder(order.id, order.items)}
                 className="bg-blue-500 text-white px-4 py-2 rounded ml-2"
               >
                 Confirm
@@ -167,7 +222,6 @@ function Orders() {
       </div>
 
       <div className="grid lg:grid-cols-2 gap-8">
-        {/* Left - Active Orders */}
         <div>
           <h3 className="text-xl font-semibold mb-4">Active Orders</h3>
           {activeOrders.length === 0 ? (
@@ -177,7 +231,6 @@ function Orders() {
           )}
         </div>
 
-        {/* Right - Cancelled Orders (only if toggled) */}
         {showCancelled && (
           <div>
             <h3 className="text-xl font-semibold mb-4 text-red-600">Cancelled Orders</h3>
@@ -191,7 +244,6 @@ function Orders() {
       </div>
 
       <ToastContainer />
-      
     </div>
   );
 }

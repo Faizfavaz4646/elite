@@ -12,7 +12,6 @@ const PaymentPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { cartItems, totalAmount, userId } = location.state || {};
-  
 
   const [paymentMethod, setPaymentMethod] = useState("Cash on Delivery");
   const [cardDetails, setCardDetails] = useState({
@@ -21,22 +20,48 @@ const PaymentPage = () => {
     expiry: "",
     cvv: ""
   });
-
+  
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-
+  const [outOfStockItems, setOutOfStockItems] = useState([]);
+  
   useEffect(() => {
     if (!cartItems || !userId || !totalAmount) {
       toast.info("Invalid access to payment page. Redirecting...");
       navigate("/cart");
     }
+
+    // Check if there are any out-of-stock items
+    checkStock();
   }, []);
+
+  const checkStock = async () => {
+    const outOfStock = [];
+
+    for (const item of cartItems) {
+      try {
+        const response = await axios.get(`http://localhost:5000/products/${item.id}`);
+        if (response.data.stock < item.quantity) {
+          outOfStock.push(item);
+        }
+      } catch (error) {
+        console.error("Error checking stock", error);
+      }
+    }
+
+    setOutOfStockItems(outOfStock);
+  };
 
   const handleCardChange = (e) => {
     setCardDetails({ ...cardDetails, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async () => {
+    if (outOfStockItems.length > 0) {
+      toast.info("Some items are out of stock, please update your cart.");
+      return;
+    }
+
     if (!cartItems?.length) {
       toast.info("Your cart is empty!");
       return;
@@ -72,7 +97,7 @@ const PaymentPage = () => {
         setIsSuccess(true);
 
         toast.success("Payment successful! Order placed.");
-          refreshCart();
+        refreshCart();
 
         setTimeout(() => {
           navigate("/orders");
@@ -103,8 +128,6 @@ const PaymentPage = () => {
         <Lottie animationData={successAnimation} loop={false} style={{ width: 500, height: 500 }} />
         <p className="text-green-600 text-xl mt-4 font-semibold">Payment Successful!</p>
       </div>
-    
-      
     );
   }
 
@@ -201,8 +224,9 @@ const PaymentPage = () => {
       )}
 
       <button
-        className="w-full bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition font-semibold"
+        className={`w-full ${outOfStockItems.length > 0 ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600'} text-white px-6 py-2 rounded hover:bg-blue-700 transition font-semibold`}
         onClick={handleSubmit}
+        disabled={outOfStockItems.length > 0}
       >
         Pay ₹{paymentMethod === "Cash on Delivery" ? totalAmount + 50 : totalAmount}
       </button>

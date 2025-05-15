@@ -24,6 +24,11 @@ function ProductDetails() {
       return;
     }
 
+    if (product.stock === 0) {
+      toast.error("Product is out of stock!");
+      return;
+    }
+
     try {
       const userRes = await axios.get(`http://localhost:5000/users/${currentUserId}`);
       const user = userRes.data;
@@ -42,7 +47,7 @@ function ProductDetails() {
           price: Number(product.price),
           image: product.image,
           size: product.size,
-          quantity: 1,
+          stock: product.stock,
         }
       ];
 
@@ -50,12 +55,12 @@ function ProductDetails() {
         ...user,
         cart: updatedCart
       });
-      setCart(updatedCart);
 
+      setCart(updatedCart);
       toast.success("Item added to cart!");
     } catch (error) {
       console.error("Error adding to cart:", error);
-      toast.error("Failed to add to cart. See console for details.");
+      toast.error("Failed to add to cart.");
     }
   };
 
@@ -65,13 +70,18 @@ function ProductDetails() {
       return;
     }
 
+    if (product.stock === 0) {
+      toast.error("Product is out of stock!");
+      return;
+    }
+
     const item = {
       productId: product.id,
       name: product.name,
       price: Number(product.price),
       image: product.image,
       size: product.size,
-      quantity: 1,
+      stock: product.stock,
     };
 
     const total = Number(product.price);
@@ -112,6 +122,10 @@ function ProductDetails() {
 
             <p className="text-xl font-bold text-green-600">₹ {product.price}</p>
 
+            <p className={`text-lg font-semibold mt-2 ${product.stock === 0 ? 'text-red-600' : 'text-gray-700'}`}>
+              {product.stock === 0 ? 'Out of Stock' : `In Stock: ${product.stock}`}
+            </p>
+
             {product.size && product.size.length > 0 && (
               <div className='mt-2'>
                 <p className='font-medium'>Available Sizes:</p>
@@ -129,13 +143,15 @@ function ProductDetails() {
           <div className="mt-4 flex gap-3">
             <button
               onClick={handleAddToCart}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg transition"
+              disabled={product.stock === 0}
+              className={`px-5 py-2 rounded-lg transition text-white ${product.stock === 0 ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'}`}
             >
               Add to Cart
             </button>
             <button
               onClick={handleBuyNow}
-              className="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg transition"
+              disabled={product.stock === 0}
+              className={`px-5 py-2 rounded-lg transition text-white ${product.stock === 0 ? 'bg-gray-400 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700'}`}
             >
               Buy Now
             </button>

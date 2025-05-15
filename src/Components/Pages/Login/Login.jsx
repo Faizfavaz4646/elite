@@ -1,4 +1,3 @@
-import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
@@ -7,12 +6,10 @@ import { useCart } from '../../../CartContext';
 import { useWishlist } from '../../../WishlistContext';
 import { toast } from 'react-toastify';
 
-
 const LoginValidation = Yup.object({
   email: Yup.string().email('Invalid email format').required('Email is required'),
   password: Yup.string().required('Password is required'),
 });
-
 
 const initialValues = {
   email: '',
@@ -21,7 +18,7 @@ const initialValues = {
 
 function Login() {
   const { refreshCart } = useCart();
-const { refreshWishlist } = useWishlist();
+  const { refreshWishlist } = useWishlist();
   const navigate = useNavigate();
 
   const handleSubmit = async (values) => {
@@ -31,25 +28,28 @@ const { refreshWishlist } = useWishlist();
           email: values.email,
           password: values.password,
         },
-      }
-
-      );
-      console.log("res", res)
+      });
 
       if (res.data.length > 0) {
         const user = res.data[0];
-        localStorage.setItem("user", JSON.stringify(user));
-        toast.success("Login successful!");
+
+        localStorage.setItem('user', JSON.stringify(user));
+        toast.success('Login successful!');
+        localStorage.setItem("loggedInUserId", JSON.stringify(user.id));
         refreshCart();
         refreshWishlist();
-        navigate("/");
-      } else {
-        toast.info("User not found. Please sign up first.");
-      }
 
+        if (user.role === 'admin') {
+          navigate('/admin/dashboard');
+        } else {
+          navigate('/');
+        }
+      } else {
+        toast.info('User not found. Please sign up first.');
+      }
     } catch (err) {
       console.error(err);
-      toast.error("Login error");
+      toast.error('Login error');
     }
   };
 

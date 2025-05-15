@@ -11,22 +11,33 @@ function Cart() {
   const { refreshCart } = useCart();
   const navigate = useNavigate();
 
+  // Fetching user's cart items
   useEffect(() => {
-    if (currentUserId) {
-      axios.get(`http://localhost:5000/users/${currentUserId}`)
-        .then(res => setCartItems(res.data.cart || []))
-        .catch(err => console.error("Error fetching cart:", err));
+    if (!currentUserId) {
+      toast.error("Please log in to view your cart");
+      return;
     }
+
+    axios.get(`http://localhost:5000/users/${currentUserId}`)
+      .then(res => {
+        const safeCart = (res.data.cart || []).map(item => ({
+          ...item,
+          quantity: item.quantity ?? 1, 
+        }));
+        setCartItems(safeCart);
+      })
+      .catch(err => console.error("Error fetching cart:", err));
   }, [currentUserId]);
 
+  // Handle 'Buy Now'
   const handleBuyNow = () => {
     if (!currentUserId || cartItems.length === 0) {
-      alert("Please login and add items to cart before proceeding.");
+      toast.info("Please login and add items to your cart before proceeding.");
       return;
     }
 
     const totalAmount = cartItems.reduce(
-      (acc, item) => acc + item.price * (item.quantity || 1),
+      (acc, item) => acc + item.price * (item.quantity ?? 1), 
       0
     );
 
@@ -39,10 +50,11 @@ function Cart() {
     });
   };
 
+  // Remove from cart
   const handleRemove = async (productId) => {
     const res = await axios.get(`http://localhost:5000/users/${currentUserId}`);
     const user = res.data;
-    const updatedCart = user.cart.filter(item => item.productId !== productId);
+    const updatedCart = (user.cart || []).filter(item => item.productId !== productId);
 
     await axios.put(`http://localhost:5000/users/${currentUserId}`, {
       ...user,
@@ -54,14 +66,20 @@ function Cart() {
     setCartItems(updatedCart);
   };
 
+  // Update quantity
   const updateQuantity = async (item, type) => {
-    const newQty = type === 'increment' ? item.quantity + 1 : item.quantity - 1;
+    let newQty = type === 'increment' ? item.quantity + 1 : item.quantity - 1;
     if (newQty < 1) return;
+
+    if (newQty > item.stock) {
+      toast.warning("Not enough stock available");
+      return;
+    }
 
     const res = await axios.get(`http://localhost:5000/users/${currentUserId}`);
     const user = res.data;
 
-    const updatedCart = user.cart.map(ci =>
+    const updatedCart = (user.cart || []).map(ci =>
       ci.productId === item.productId ? { ...ci, quantity: newQty } : ci
     );
 
@@ -86,14 +104,37 @@ function Cart() {
               <p className="text-sm text-gray-500">{item.category}</p>
               <p className="text-yellow-500 mt-1">{'★'.repeat(item.rating)}</p>
               <p className="text-lg font-bold text-green-600">₹ {item.price}</p>
+
               <div className="flex items-center gap-4 mt-4">
                 <div className="flex items-center border px-3 py-1 rounded gap-2">
-                  <button onClick={() => updateQuantity(item, 'decrement')}>−</button>
+                  <button
+                    onClick={() => updateQuantity(item, 'decrement')}
+                    disabled={item.quantity <= 1}
+                  >
+                    −
+                  </button>
                   <span>{item.quantity}</span>
-                  <button onClick={() => updateQuantity(item, 'increment')}>+</button>
+                  <button
+                    onClick={() => updateQuantity(item, 'increment')}
+                    disabled={item.quantity >= item.stock}
+                  >
+                    +
+                  </button>
                 </div>
-                <button onClick={() => handleRemove(item.productId)} className="text-red-400 bg-red-200 px-2 py-1 rounded hover:bg-red-300">Remove</button>
-                <button onClick={handleBuyNow} className="ml-auto bg-blue-600 text-white px-4 py-2 rounded">Buy Now</button>
+
+                <button
+                  onClick={() => handleRemove(item.productId)}
+                  className="text-red-400 bg-red-200 px-2 py-1 rounded hover:bg-red-300"
+                >
+                  Remove
+                </button>
+
+                <button
+                  onClick={handleBuyNow}
+                  className="ml-auto bg-blue-600 text-white px-4 py-2 rounded"
+                >
+                  Buy Now
+                </button>
               </div>
             </div>
           </div>

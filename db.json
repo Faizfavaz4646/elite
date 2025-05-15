@@ -6,6 +6,7 @@
       "email": "faizfavaz7@gmail.com",
       "password": "123456",
       "confirmpassword": "123456",
+      "role": "user",
       "wishlist": [],
       "cart": [
         {
@@ -24,44 +25,21 @@
       ]
     },
     {
+      "id": "2",
+      "name": "admin",
+      "email": "admin@eliteeleven.com",
+      "password": "admin123",
+      "role": "admin",
+      "cart": []
+    },
+    {
       "id": "d1a9",
       "name": "sidha",
       "email": "sidhasamad@gmail.com",
       "password": "1234567890",
+      "role": "user",
       "orders": [],
       "wishlist": [
-        {
-          "productId": "7",
-          "name": "Tyka Football- Basic Socks | Red",
-          "price": "180",
-          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSpvApf5ZEPjdQz0BBBQ8S0HCkcUmFvGH2uvOVya4D60DT4-x9PmgNiXztYoHwRwDfqxAwGm9ZhPaHyuK9_7X-2XKtGVZMpkhNh8ac6rKfo",
-          "category": "Socks",
-          "rating": 4.2
-        },
-        {
-          "productId": "8",
-          "name": "Nike Men's Lamine Yamal Home Authentic Player Jersey",
-          "price": "875",
-          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ5yZe1yW8ZYJKWoxhMwCBtZYOQejkYc5-WkfLwPOD9b1pS-iMpHWfchUgRCUGr6ZXdt0wr_dtPjGjT4XSan7_ZHap0DotyLnqZFTkqBG_DqQ5F82jgT-vz",
-          "category": "Jerseys",
-          "rating": 4.2
-        },
-        {
-          "productId": "10",
-          "name": "Axpro Cr7 Ronaldo Ankle Synthetic Tpu Studs Football Shoes",
-          "price": "1020",
-          "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQK54G_vnv3dp44zunclUiYb3j9uK7lo4L7U62Z2mgEu3dxRRlF-TteUhGrmu70dhHDgEZWoMmF-NMkS3ObH4FUr2sEnH3ZudFyWGJDznvqajuoJGFsClHjAw",
-          "category": "Boots",
-          "rating": 4.2
-        },
-        {
-          "productId": "11",
-          "name": "Aussie Rules Football Hygiene Water Bottle [1 Litre]",
-          "price": "110",
-          "image": "https://nwscdn.com/media/catalog/product/cache/h900xw900/t/e/team_hygiene_water_bottle_01_4.jpg",
-          "category": "Shin pads",
-          "rating": 4.2
-        },
         {
           "productId": "12",
           "name": "Brazil Football jersey Neymar",
@@ -69,15 +47,70 @@
           "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQNBmwP6mvbTIHfwGqWosoaHAeIGnR5tof6raK-HFK7R9sRj9dEnpMSvrowwMIYzL3NNDBgDks9HQG2_3xK856qij9iE3GfPLxW0vplgMykDTY75oy6Bd4TFA",
           "category": "Jerseys",
           "rating": 4.2
+        },
+        {
+          "productId": "18",
+          "name": "NIVIA Football",
+          "price": "670",
+          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTyElTuctlNBouTxnNiLu_60Imr2CuIAykG1c9DufhLqGSS75EKahfaOGi8Tq1dKbFaL_lGQCk1c5zykOe3NtN4-eTgV2mO8Q2PllOT-Sq-bzD7qOnlEZoCHb9_E-EQ4DacbcGo1jfA7A&usqp=CAc",
+          "category": "Balls",
+          "rating": 4.2,
+          "stock": 10
         }
       ],
-      "cart": []
+      "cart": [
+        {
+          "productId": "7",
+          "quantity": 1,
+          "name": "Tyka Football- Basic Socks | Red",
+          "price": "180",
+          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSpvApf5ZEPjdQz0BBBQ8S0HCkcUmFvGH2uvOVya4D60DT4-x9PmgNiXztYoHwRwDfqxAwGm9ZhPaHyuK9_7X-2XKtGVZMpkhNh8ac6rKfo",
+          "category": "Socks",
+          "rating": 4.2
+        },
+        {
+          "productId": "6",
+          "quantity": 1,
+          "name": "VECTOR X VRX7 Shin Guard with Blastic",
+          "price": "229",
+          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSwnl6u4oM4PHc73_KdofuN8VaHgMT6OE9hgxKXo8DS6G8B-FERqDk1tQIvCjcxnIiSsF92FbTfZP124MVNNqJK9FE-wkKcNL_Mg21QcygK3zUYJEvAvkfq",
+          "category": "Shin pads",
+          "rating": 4.2
+        },
+        {
+          "productId": "5",
+          "quantity": 1,
+          "name": "MESSI Inter Miami Jersey 2025",
+          "price": "700",
+          "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR-GeaREMGH40fIlK077auTMo6GpU1p2lidIcwXXIsF7r16_ieY-ypQi8pbR1OS-1ozFm-q8n40SMo5ck1aNm1SN9cQBo1tEghqJVJUwbmCoOIjE-X-HQN3HA",
+          "category": "Jerseys",
+          "rating": 4.2
+        },
+        {
+          "productId": "8",
+          "quantity": 1,
+          "name": "Nike Men's Lamine Yamal Home Authentic Player Jersey",
+          "price": "875",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ5yZe1yW8ZYJKWoxhMwCBtZYOQejkYc5-WkfLwPOD9b1pS-iMpHWfchUgRCUGr6ZXdt0wr_dtPjGjT4XSan7_ZHap0DotyLnqZFTkqBG_DqQ5F82jgT-vz",
+          "category": "Jerseys",
+          "rating": 4.2
+        }
+      ],
+      "phone": "9954562147",
+      "address": {
+        "line": "fgshnsnsn",
+        "city": "malappuram",
+        "state": "Kerala",
+        "zip": "675641",
+        "country": "India"
+      }
     },
     {
       "id": "80bf",
       "name": "yasar",
       "email": "yasar@gmail.com",
       "password": "123456",
+      "role": "user",
       "cart": [],
       "wishlist": []
     },
@@ -86,11 +119,130 @@
       "name": "saheer",
       "email": "saheer@gmail.com",
       "password": "123456",
+      "role": "user",
       "cart": [],
       "wishlist": []
+    },
+    {
+      "id": "ed1f",
+      "name": "safvan",
+      "email": "safvan@gmail.com",
+      "password": "1234567890",
+      "cart": [
+        {
+          "productId": "3",
+          "quantity": 1,
+          "name": "NIVIA Goalkeeper Gloves",
+          "price": "350",
+          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSZesME9ofwmlFTkC4p0CW4WEbWK42YuEdB1AevVLNfLV88W3Ef_EqOvxJxSod7E_J0hwchs92KcJZY1pj_rcN3Z6nmWB7ZZQLHGN-8FfbABKYoElf6y9GjN0EGXcDFPqoSgPbp5vSAeg&usqp=CAc",
+          "category": "Gloves",
+          "rating": 4.2
+        },
+        {
+          "productId": "4",
+          "quantity": 1,
+          "name": "NIKE Soccer Ball - FIFA Approved",
+          "price": "1249",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBnRUVH8QeLG8ppTlaUR7ed5kjW0G6U7dwfQ&s",
+          "category": "Balls",
+          "rating": 4.2
+        },
+        {
+          "productId": "2",
+          "quantity": 1,
+          "name": "Nike Football Jersey PSG",
+          "price": "459",
+          "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSHA951zorOzjJ4BYzBUShu9YrrRFAw9VcoGjFuhhx0Y9_QITnd2kTrZUGHnzoH8H1X4zy34eyERVGG-wuiHlMXzAFtossIAISF-6BquhLKVSKMcFGmFupiQw",
+          "category": "Jerseys",
+          "rating": 4.2
+        },
+        {
+          "productId": "1",
+          "quantity": 1,
+          "name": "Adidas Predator 2025",
+          "price": "999",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT5XpK9N72zZO3YcPLJRmmXWvvsI08bPBs1iUp9vyZF-U1U38GK-y4sUhXXCXvhP7GTm4tkAfHUoG7s6PsnVtreBFyyPlyl6Zel9Y-ZkyUs-wdvMwibw9rcNrM",
+          "category": "Boots",
+          "rating": 4.2
+        },
+        {
+          "productId": "6",
+          "quantity": 1,
+          "name": "VECTOR X VRX7 Shin Guard with Blastic",
+          "price": "229",
+          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSwnl6u4oM4PHc73_KdofuN8VaHgMT6OE9hgxKXo8DS6G8B-FERqDk1tQIvCjcxnIiSsF92FbTfZP124MVNNqJK9FE-wkKcNL_Mg21QcygK3zUYJEvAvkfq",
+          "category": "Shin pads",
+          "rating": 4.2
+        }
+      ],
+      "wishlist": [],
+      "address": {
+        "line": "puthanmaliyekkal house",
+        "city": "malappuram",
+        "state": "Kerala",
+        "zip": "673638",
+        "country": "India"
+      },
+      "phone": "9947645683"
+    },
+    {
+      "id": "85fd",
+      "name": "faiz",
+      "email": "faiz@gmail.com",
+      "password": "1234567890",
+      "cart": [
+        {
+          "productId": "1",
+          "name": "Adidas Predator 2025",
+          "price": "999",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT5XpK9N72zZO3YcPLJRmmXWvvsI08bPBs1iUp9vyZF-U1U38GK-y4sUhXXCXvhP7GTm4tkAfHUoG7s6PsnVtreBFyyPlyl6Zel9Y-ZkyUs-wdvMwibw9rcNrM",
+          "category": "Boots",
+          "rating": 4.2,
+          "stock": 10
+        }
+      ],
+      "wishlist": [
+        {
+          "productId": "1",
+          "name": "Adidas Predator 2025",
+          "price": "999",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT5XpK9N72zZO3YcPLJRmmXWvvsI08bPBs1iUp9vyZF-U1U38GK-y4sUhXXCXvhP7GTm4tkAfHUoG7s6PsnVtreBFyyPlyl6Zel9Y-ZkyUs-wdvMwibw9rcNrM",
+          "category": "Boots",
+          "rating": 4.2,
+          "stock": 10
+        }
+      ],
+      "photo": "https://media.licdn.com/dms/image/v2/D5603AQEC0IH_i0cDGw/profile-displayphoto-shrink_200_200/B56ZRwff26G8AY-/0/1737054094595?e=1752710400&v=beta&t=3kAcubHWxjjie9yIrTcqOJ6XMmBtWOpAsDV-VrmPX2M",
+      "address": {
+        "line": "puthanmaliyekkal house",
+        "city": "malappuram",
+        "state": "Kerala",
+        "zip": "673638",
+        "country": "India"
+      },
+      "phone": "7034514646",
+      "role": "user"
+    },
+    {
+      "id": "3493",
+      "name": "nefu",
+      "email": "nefu@gmail.com",
+      "password": "1234567890",
+      "cart": [],
+      "wishlist": [],
+      "photo": "https://via.placeholder.com/150",
+      "address": {
+        "line": "gfhfhgfjhghj",
+        "city": "malappuram",
+        "state": "Kerala",
+        "zip": "675641",
+        "country": "India"
+      },
+      "phone": "7736599384",
+      "role": "user",
+      "isBlocked": false
     }
   ],
-  "admins":[],
   "orders": [
     {
       "id": "5604",
@@ -449,44 +601,172 @@
       "status": "Paid",
       "date": "2025-05-12T12:25:07.469Z",
       "expectedDeliveryDate": "2025-05-15T12:25:07.469Z"
+    },
+    {
+      "id": "47b1",
+      "userId": "d1a9",
+      "items": [
+        {
+          "productId": "35",
+          "name": "Shine one Water Bottle ",
+          "price": 299,
+          "image": "https://myborosil.com/cdn/shop/files/my-borosil-water-bottles-900-ml-gosport-football-29838171046026_2024-05-24T10_23_18.063Z.png",
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 349,
+      "paymentMethod": "Cash on Delivery",
+      "cardDetails": null,
+      "status": "Paid",
+      "date": "2025-05-13T05:59:26.808Z",
+      "expectedDeliveryDate": "2025-05-16T05:59:26.809Z"
+    },
+    {
+      "id": "233f",
+      "userId": "80bf",
+      "items": [
+        {
+          "productId": "2",
+          "name": "Nike Football Jersey PSG",
+          "price": 459,
+          "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSHA951zorOzjJ4BYzBUShu9YrrRFAw9VcoGjFuhhx0Y9_QITnd2kTrZUGHnzoH8H1X4zy34eyERVGG-wuiHlMXzAFtossIAISF-6BquhLKVSKMcFGmFupiQw",
+          "size": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 509,
+      "paymentMethod": "Cash on Delivery",
+      "cardDetails": null,
+      "status": "Paid",
+      "date": "2025-05-13T08:09:24.362Z",
+      "expectedDeliveryDate": "2025-05-16T08:09:24.362Z"
+    },
+    {
+      "id": "12d0",
+      "userId": "85fd",
+      "items": [
+        {
+          "productId": "22",
+          "name": "CR7 AlNassr jersey yellow",
+          "price": 860,
+          "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRLgGVdgyFOBQhXPs6BTQRHSw3P3Pn29Qa5WJvrT-yGsZjxR_Qy_NT0V5Gjlb_I6BVm2W69Hxu6WZtbeQG58BoUw_F000CMu1pTDdeWcE32DJ4WJZ73b0PVVg",
+          "size": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 910,
+      "paymentMethod": "Cash on Delivery",
+      "cardDetails": null,
+      "status": "Paid",
+      "date": "2025-05-14T06:03:23.089Z",
+      "expectedDeliveryDate": "2025-05-17T06:03:23.089Z"
+    },
+    {
+      "id": "5b3f",
+      "userId": "85fd",
+      "items": [
+        {
+          "productId": "13",
+          "name": "Adidas X crazyfast League Laceless Firm Ground Fooball Kids Unisex Shoes -Solar Red",
+          "price": 1055,
+          "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQQaXuX8azKZxAu69fGZ5xfjYz12rbLEhl-ET78hoUj4hiGc1p9_JDKjp-vtTlZVm1xUGDLMX7zA_jsVsJfP21yKiVRDOVz7zp9pgyGZfznEXJCyDxRnszUjy8",
+          "size": [
+            38,
+            40,
+            42,
+            44
+          ],
+          "stock": 10,
+          "quantity": 10
+        }
+      ],
+      "totalAmount": 10600,
+      "paymentMethod": "Cash on Delivery",
+      "cardDetails": null,
+      "status": "Cancelled",
+      "date": "2025-05-14T09:01:33.781Z",
+      "expectedDeliveryDate": "2025-05-17T09:01:33.781Z",
+      "cancellationReason": "i dont like it"
+    },
+    {
+      "id": "65e5",
+      "userId": "85fd",
+      "items": [
+        {
+          "productId": "13",
+          "name": "Adidas X crazyfast League Laceless Firm Ground Fooball Kids Unisex Shoes -Solar Red",
+          "price": 1055,
+          "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQQaXuX8azKZxAu69fGZ5xfjYz12rbLEhl-ET78hoUj4hiGc1p9_JDKjp-vtTlZVm1xUGDLMX7zA_jsVsJfP21yKiVRDOVz7zp9pgyGZfznEXJCyDxRnszUjy8",
+          "size": [
+            38,
+            40,
+            42,
+            44
+          ],
+          "stock": 10
+        }
+      ],
+      "totalAmount": 1105,
+      "paymentMethod": "Cash on Delivery",
+      "cardDetails": null,
+      "status": "Paid",
+      "date": "2025-05-14T09:19:19.740Z",
+      "expectedDeliveryDate": "2025-05-17T09:19:19.740Z"
+    },
+    {
+      "id": "f776",
+      "userId": "3493",
+      "items": [
+        {
+          "productId": "4",
+          "name": "NIKE Soccer Ball - FIFA Approved",
+          "price": 1249,
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBnRUVH8QeLG8ppTlaUR7ed5kjW0G6U7dwfQ&s",
+          "stock": 10,
+          "quantity": 2
+        }
+      ],
+      "totalAmount": 2548,
+      "paymentMethod": "Cash on Delivery",
+      "cardDetails": null,
+      "status": "Paid",
+      "date": "2025-05-14T19:09:03.541Z",
+      "expectedDeliveryDate": "2025-05-17T19:09:03.541Z"
     }
   ],
   "products": [
     {
-      "id": "1",
       "name": "Adidas Predator 2025",
-      "category": "Boots",
       "price": "999",
       "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT5XpK9N72zZO3YcPLJRmmXWvvsI08bPBs1iUp9vyZF-U1U38GK-y4sUhXXCXvhP7GTm4tkAfHUoG7s6PsnVtreBFyyPlyl6Zel9Y-ZkyUs-wdvMwibw9rcNrM",
-      "rating": 4.2,
-      "reviewCount": 85,
-      "sizes": [
-        38,
-        40,
-        42,
-        44
-      ]
+      "category": "Shoes",
+      "stock": 10,
+      "id": "1"
     },
     {
-      "id": "2",
       "name": "Nike Football Jersey PSG",
-      "category": "Jerseys",
-      "price": "459",
+      "price": "550",
       "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSHA951zorOzjJ4BYzBUShu9YrrRFAw9VcoGjFuhhx0Y9_QITnd2kTrZUGHnzoH8H1X4zy34eyERVGG-wuiHlMXzAFtossIAISF-6BquhLKVSKMcFGmFupiQw",
-      "rating": 4.2,
-      "reviewCount": 85,
-      "size": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ]
+      "category": "Jerseys",
+      "stock": 8,
+      "id": "2"
     },
     {
       "id": "3",
       "name": "NIVIA Goalkeeper Gloves",
       "category": "Gloves",
       "price": "350",
+      "stock": 10,
       "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSZesME9ofwmlFTkC4p0CW4WEbWK42YuEdB1AevVLNfLV88W3Ef_EqOvxJxSod7E_J0hwchs92KcJZY1pj_rcN3Z6nmWB7ZZQLHGN-8FfbABKYoElf6y9GjN0EGXcDFPqoSgPbp5vSAeg&usqp=CAc",
       "rating": 4.2,
       "reviewCount": 85,
@@ -501,6 +781,7 @@
       "name": "NIKE Soccer Ball - FIFA Approved",
       "category": "Balls",
       "price": "1249",
+      "stock": 10,
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBnRUVH8QeLG8ppTlaUR7ed5kjW0G6U7dwfQ&s",
       "rating": 4.2,
       "reviewCount": 85
@@ -510,6 +791,7 @@
       "name": "MESSI Inter Miami Jersey 2025",
       "category": "Jerseys",
       "price": "700",
+      "stock": 10,
       "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR-GeaREMGH40fIlK077auTMo6GpU1p2lidIcwXXIsF7r16_ieY-ypQi8pbR1OS-1ozFm-q8n40SMo5ck1aNm1SN9cQBo1tEghqJVJUwbmCoOIjE-X-HQN3HA",
       "rating": 4.2,
       "reviewCount": 85,
@@ -525,6 +807,7 @@
       "name": "VECTOR X VRX7 Shin Guard with Blastic",
       "category": "Shin pads",
       "price": "229",
+      "stock": 10,
       "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSwnl6u4oM4PHc73_KdofuN8VaHgMT6OE9hgxKXo8DS6G8B-FERqDk1tQIvCjcxnIiSsF92FbTfZP124MVNNqJK9FE-wkKcNL_Mg21QcygK3zUYJEvAvkfq",
       "rating": 4.2,
       "reviewCount": 85
@@ -534,6 +817,7 @@
       "name": "Tyka Football- Basic Socks | Red",
       "category": "Socks",
       "price": "180",
+      "stock": 10,
       "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSpvApf5ZEPjdQz0BBBQ8S0HCkcUmFvGH2uvOVya4D60DT4-x9PmgNiXztYoHwRwDfqxAwGm9ZhPaHyuK9_7X-2XKtGVZMpkhNh8ac6rKfo",
       "rating": 4.2,
       "reviewCount": 85
@@ -543,6 +827,7 @@
       "name": "Nike Men's Lamine Yamal Home Authentic Player Jersey",
       "category": "Jerseys",
       "price": "875",
+      "stock": 10,
       "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ5yZe1yW8ZYJKWoxhMwCBtZYOQejkYc5-WkfLwPOD9b1pS-iMpHWfchUgRCUGr6ZXdt0wr_dtPjGjT4XSan7_ZHap0DotyLnqZFTkqBG_DqQ5F82jgT-vz",
       "rating": 4.2,
       "reviewCount": 85,
@@ -558,6 +843,7 @@
       "name": "MBAPPE REAL MADRID HOME KIT",
       "category": "Jerseys",
       "price": "755",
+      "stock": 10,
       "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQ1mjLnEUmy50zIptIjfnzc3OVeMEx8ArllPSNbVE-05cwz9bC-3_M6JggOr2n-cJQuLsrToSS5X5KwwHS3nbDNRpvgoV6N0F3FiWhN7XE",
       "rating": 4.2,
       "reviewCount": 85,
@@ -573,6 +859,7 @@
       "name": "Axpro Cr7 Ronaldo Ankle Synthetic Tpu Studs Football Shoes",
       "category": "Boots",
       "price": "1020",
+      "stock": 10,
       "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQK54G_vnv3dp44zunclUiYb3j9uK7lo4L7U62Z2mgEu3dxRRlF-TteUhGrmu70dhHDgEZWoMmF-NMkS3ObH4FUr2sEnH3ZudFyWGJDznvqajuoJGFsClHjAw",
       "rating": 4.2,
       "reviewCount": 85,
@@ -588,6 +875,7 @@
       "name": "Aussie Rules Football Hygiene Water Bottle [1 Litre]",
       "category": "Shin pads",
       "price": "110",
+      "stock": 10,
       "image": "https://nwscdn.com/media/catalog/product/cache/h900xw900/t/e/team_hygiene_water_bottle_01_4.jpg",
       "rating": 4.2,
       "reviewCount": 85
@@ -597,6 +885,7 @@
       "name": "Brazil Football jersey Neymar",
       "category": "Jerseys",
       "price": "650",
+      "stock": 10,
       "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQNBmwP6mvbTIHfwGqWosoaHAeIGnR5tof6raK-HFK7R9sRj9dEnpMSvrowwMIYzL3NNDBgDks9HQG2_3xK856qij9iE3GfPLxW0vplgMykDTY75oy6Bd4TFA",
       "rating": 4.2,
       "reviewCount": 85,
@@ -612,6 +901,7 @@
       "name": "Adidas X crazyfast League Laceless Firm Ground Fooball Kids Unisex Shoes -Solar Red",
       "category": "Boots",
       "price": "1055",
+      "stock": 10,
       "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQQaXuX8azKZxAu69fGZ5xfjYz12rbLEhl-ET78hoUj4hiGc1p9_JDKjp-vtTlZVm1xUGDLMX7zA_jsVsJfP21yKiVRDOVz7zp9pgyGZfznEXJCyDxRnszUjy8",
       "rating": 4.2,
       "reviewCount": 85,
@@ -627,6 +917,7 @@
       "name": "Adidas Messi #10 Premium Soccer jersey",
       "category": "Jerseys",
       "price": "600",
+      "stock": 10,
       "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRoLJ6qhiOh3mZ_xRIrM7y67W91oFraEs_FiyJmPHmwlMVI0VZ6NZluuSxMqfIkKUTFxJI_bFXm25w-IFz0XoJdHTWHBsi7fz99VIz-CHVDuTamzpnQVF2fcw",
       "rating": 4.2,
       "reviewCount": 85,
@@ -642,6 +933,7 @@
       "name": "Puma ULTRA 5 MATCH+ FG/AG Unisex Football Shoes",
       "category": "Boots",
       "price": "850",
+      "stock": 10,
       "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSGl1QC1bbwPq7FnwuHKvlAAstKTBluAjsZC5M6QHLkpxF4k7A_WWZnhL0HdizIJrgo5JOCQ37xXXA1SJngEIuGWkkMyb45ZNIUU3o7lWuxzA9fny6LvoXC1w",
       "rating": 4.2,
       "reviewCount": 85,
@@ -657,6 +949,7 @@
       "name": "Maccabi Art 8726 18 Oz Collapsible Silicone Soccer Water Bottle",
       "category": "Shin pads",
       "price": "160",
+      "stock": 10,
       "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTqoHzF3LbtAEqA1z2u7s3d_jdmphO9t2PtrdBK2NmNC7hzkpeGA6YCZpJBuiJncMRzj_yDTikVdnxq9hSLji79ZDQmNdDaUzZdOoXXW46LBtVTh1IbeEI",
       "rating": 4.2,
       "reviewCount": 85
@@ -666,6 +959,7 @@
       "name": "Adidas Tiro Club Shin Guards",
       "category": "Shin pads",
       "price": "320",
+      "stock": 10,
       "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcShcaIe683JlWZB648FihO3tNXDVrnSUHndIyP3zNfAOHsJG12YkbrRkA3YpUS0uuEvU-hU4DfX_TgnaeufQGGBgGXFlYTvU5ulMPiXWvTmJwqUJP9SUQ30",
       "rating": 4.2,
       "reviewCount": 85
@@ -675,6 +969,7 @@
       "name": "NIVIA Football",
       "category": "Balls",
       "price": "670",
+      "stock": 10,
       "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTyElTuctlNBouTxnNiLu_60Imr2CuIAykG1c9DufhLqGSS75EKahfaOGi8Tq1dKbFaL_lGQCk1c5zykOe3NtN4-eTgV2mO8Q2PllOT-Sq-bzD7qOnlEZoCHb9_E-EQ4DacbcGo1jfA7A&usqp=CAc",
       "rating": 4.2,
       "reviewCount": 85
@@ -684,6 +979,7 @@
       "name": "PUMA ATTACANTO Football Shin Guards",
       "category": "Shin pads",
       "price": "199",
+      "stock": 10,
       "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTUV6kXZc-OxWhLA4s_hq27L21n25hhJ7gKK1l6gGCFwQsKtzwbLnULepPZ1UmOG-nUSNN6MbToL6ZOrtVl4uaiI3Bxk5UXXRS5Hfb_xiTdD03_2oKSu9um",
       "rating": 4.2,
       "reviewCount": 85
@@ -693,6 +989,7 @@
       "name": "Addidas new edition shoe",
       "category": "Boots",
       "price": "1100",
+      "stock": 10,
       "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSC-5s3dJVsyvrZj7Jq26vwsTyPhWaZKg3ApeTIkGnn5DJOaTxgMQ6WuM_FbXUMQ17vp7ozL0VNX-LZ9JqRitfrP6Du0GF8YAZZT8SgHd9lXS85r4N-e6Uy",
       "rating": 4.2,
       "reviewCount": 85,
@@ -708,6 +1005,7 @@
       "name": "LIVERPOOL RED jersey",
       "category": "Jerseys",
       "price": "590",
+      "stock": 10,
       "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRehzUjrZfaCta2JkTRoErvB5UsnERmRJP7Ol1hbIxuvnhyJS54OwKtT9w4-0u4KYel3FlpEDt_SDc0f1J_hAMghewB4q6Zli69gLilkE-ceZ8ibZ4JrnuFrw",
       "rating": 4.2,
       "reviewCount": 85,
@@ -723,6 +1021,7 @@
       "name": "CR7 AlNassr jersey yellow",
       "category": "Jerseys",
       "price": "860",
+      "stock": 10,
       "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRLgGVdgyFOBQhXPs6BTQRHSw3P3Pn29Qa5WJvrT-yGsZjxR_Qy_NT0V5Gjlb_I6BVm2W69Hxu6WZtbeQG58BoUw_F000CMu1pTDdeWcE32DJ4WJZ73b0PVVg",
       "rating": 4.2,
       "reviewCount": 85,
@@ -738,6 +1037,7 @@
       "name": "Nivia Men's Ashtang Turf Football Shoes",
       "category": "Boots",
       "price": "680",
+      "stock": 10,
       "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQZ5b-CQOxE-X0wUJVknJzgwERFBQMvyAxBrzyS6w9Fqsu3tRRADR_XhOZG_ag1O9aSCEwa-a9cgldWXX7yriyI5gBjyJh9usbIW_xz_hiDclgJNce-37pocQ",
       "rating": 4.2,
       "reviewCount": 85,
@@ -753,6 +1053,7 @@
       "name": "NIKE Soccer socks",
       "category": "Socks",
       "price": "135",
+      "stock": 10,
       "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcScTrNu1jc78PpZGr4jO4Rjc_4T848N-3rLax8jIMrvkILydF88KRplUpLXrrntcTyfeF3kNq3dEXKVA7BK27eq1PR7BTetnhMQSSkKf2d0Pgfy3qYftoC2QA",
       "rating": 4.2,
       "reviewCount": 85
@@ -762,6 +1063,7 @@
       "name": "PUMA White Socks",
       "category": "Socks",
       "price": "180",
+      "stock": 10,
       "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQmsA1-BsUoi-6g5Hg9zdSoWs56Sqgxml5wRjJ6HaS7TTmzmbfqQtQ_CGvmNhEfHM5rot2NWLJdXhjFS0NvVl6JY2xxrZo6A5Nd4yloABe-LMvvvh-X5Aku",
       "rating": 4.2,
       "reviewCount": 85
@@ -771,6 +1073,7 @@
       "name": "NIVIA socks proffessional",
       "category": "Socks",
       "price": "220",
+      "stock": 10,
       "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQV59jwzNlfkGwMeznEKoPYOWctAeakRb67lXzs5eNckyA1GiMkqP8sPwT5posloKjppz50pPB3SaQqEXS6-th4Y7DMVZjK6cFXtV3fdcPMZxGhQnlJ2wyB",
       "rating": 4.2,
       "reviewCount": 85
@@ -780,6 +1083,7 @@
       "name": "Men Puma AC Milan 24/25 Home Jersey",
       "category": "Jerseys",
       "price": "550",
+      "stock": 10,
       "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRU_312JTO4NmsctxT0a-_wmAiTZPlngenPzQkMCafrMpC2nepapmLqAnKy7e-9idtOIH1Rt3__mTKax905W_LY4Ugu_EPn5fSCguFBHngQ",
       "rating": 4.2,
       "reviewCount": 85,
@@ -795,6 +1099,7 @@
       "name": "FRANCE International Jersey",
       "category": "Jerseys",
       "price": "650",
+      "stock": 10,
       "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS7PQZ5PSNkucKkDh06YjtcAT5xHBnxBNiCbAAM_rvy3MzntKtHR8m6oGAk6yMFb6IpaNCTFKCDT0dtHGitt7e1vOPY4Lj5YUWbOANLkBR40-dwqQLyfrgaTQ",
       "rating": 4.2,
       "reviewCount": 85,
@@ -810,6 +1115,7 @@
       "name": "AL HILAL New jersey",
       "category": "Jerseys",
       "price": "520",
+      "stock": 10,
       "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTT9hu2yMD0XnFSYSyFEt-1lgvK26PSMOIhXr-cUy5YW05Ks8HgK8h538Y4hpTlls4GoKZXn3BaT2ZRITCwOOdXPcDeo4zt1uuwvB9VfCmylNMaAbb63Ll7Kg",
       "rating": 4.2,
       "reviewCount": 85,
@@ -825,6 +1131,7 @@
       "name": "Adidas Men's Deportivo III Turf Boots",
       "category": "Boots",
       "price": "1240",
+      "stock": 10,
       "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQyrWw_456JjRzqFInxtcUAaFWiYsSMoiZovyVl0vZSOMrMTN17B3g79uDK1ur5sfJCriq54v3U_fOplUh2CvRSGpjTQq3O7K1-bT7MEpTpxhqc8isMYa9X",
       "rating": 4.2,
       "reviewCount": 85,
@@ -840,6 +1147,7 @@
       "name": "PUMA New Release Shoe",
       "category": "Boots",
       "price": "1300",
+      "stock": 10,
       "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSJFwALVZ82XwvGuA4woBntA-h4nBEPHhtFRNOhI338nhj7DlbdReUvRSgVS3vasTGMUo3yjGaY-vYbKYfdLQn970v7G4AllFzuans4CYo17I0shvNyVRIVWQ",
       "rating": 4.2,
       "reviewCount": 85,
@@ -855,6 +1163,7 @@
       "name": "Specter 2.0 Soccer Boot",
       "category": "Boots",
       "price": "450",
+      "stock": 10,
       "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTwXZ8hkH7MuB1DnQdSlmV7AebI4spotGO9OR-UaS0_4mUuHUL8RQv-k3d9vgxK0fA8lLEhUtAIzsHNFI9KM4ECNH7WLT2i1mkWGu0YxHGMzRiop9ikLnkX",
       "rating": 4.2,
       "reviewCount": 85,
@@ -870,6 +1179,7 @@
       "name": "Njr Soccer Boot",
       "category": "Boots",
       "price": "1500",
+      "stock": 10,
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTqtVRlhfG_nKujmHQ_X2NMCYMlwHpIQ9RPA&s",
       "rating": 4.2,
       "reviewCount": 85,
@@ -885,6 +1195,7 @@
       "name": "Njr Soccer Shin pads",
       "category": "Shin pads",
       "price": "350",
+      "stock": 10,
       "image": "https://fearlesscustom.com/cdn/shop/files/Mini_Pads_1.jpg?v=1729371647",
       "rating": 4.2,
       "reviewCount": 85
@@ -894,6 +1205,7 @@
       "name": "Shine one Water Bottle ",
       "category": "Shin pads",
       "price": "299",
+      "stock": 10,
       "image": "https://myborosil.com/cdn/shop/files/my-borosil-water-bottles-900-ml-gosport-football-29838171046026_2024-05-24T10_23_18.063Z.png",
       "rating": 4.2,
       "reviewCount": 85
@@ -903,6 +1215,7 @@
       "name": "GERMANY International jursey",
       "category": "Jerseys",
       "price": "510",
+      "stock": 10,
       "image": "https://assets.adidas.com/images/w_600,f_auto,q_auto/08a3d03008934eba9f4377c2e7a009df_9366/Germany_24_Home_Jersey_White_IP8139_21_model.jpg",
       "rating": 4.2,
       "reviewCount": 85,
@@ -918,7 +1231,28 @@
       "name": "Dinetic Brazuca Football",
       "category": "Balls",
       "price": "690",
+      "stock": 10,
       "image": "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/97594787e3bb46b68fa0898258c56592_9366/fussballliebe-training-ball.jpg",
+      "rating": 4.2,
+      "reviewCount": 85
+    },
+    {
+      "id": "804d",
+      "name": " Nivia Blaze Goalkeeper Gloves",
+      "price": "299",
+      "stock": 10,
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTYoeOgnPDyLIBstAQeh5j0PN1Bfxb2FKAQ6PWife88XmuhAbzP5C6P4iOgDL3tj6B83KCfQ9xp2Wnj5iSc2mddznmo84HtAgxDiIaW8Q8L",
+      "category": "Gloves",
+      "rating": 4.2,
+      "reviewCount": 85
+    },
+    {
+      "id": "f0be",
+      "name": "Puma ULTRA Match Protect RC Unisex White Goalkeeper Gloves At Nykaa",
+      "price": "3200",
+      "stock": 10,
+      "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRXejYfQU4zE4fvthPdmllHq3rEw_ttZJmuOJYttnUYD93W2Rb-Pl5RDL_-6fpsoOSwcI6zl1d46Zl9qL0O965oW4sGwqt2QH7uR899QUHSKSiHcgiyvi1X",
+      "category": "Gloves",
       "rating": 4.2,
       "reviewCount": 85
     }

@@ -1,15 +1,16 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaShoppingCart, FaHome, FaHeart, FaBars, FaTimes } from 'react-icons/fa'; 
+import { FaShoppingCart, FaHome, FaHeart, FaBars, FaTimes, FaUserCircle } from 'react-icons/fa'; 
 import { useEffect, useState } from 'react';
 import { useCart, useCartCount } from '../CartContext';
 import { useWishlist, useWishlistCount } from '../WishlistContext';
 import { toast } from 'react-toastify';
-
+import axios from 'axios';
 
 function Navbar() {
   const [user, setUser] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [menuOpen, setMenuOpen] = useState(false);
+  const [profilePic, setProfilePic] = useState('');
   const location = useLocation();
   const navigate = useNavigate();
   const cartCount = useCartCount();
@@ -19,7 +20,14 @@ function Navbar() {
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
-    setUser(storedUser ? JSON.parse(storedUser) : null);
+    const userData = storedUser ? JSON.parse(storedUser) : null;
+    setUser(userData);
+
+    if (userData) {
+      axios.get(`http://localhost:5000/users/${userData.id}`)
+        .then(res => setProfilePic(res.data.profilePic || ''))
+        .catch(err => console.error('Failed to fetch profile pic', err));
+    }
   }, [location]);
 
   const handleLogout = () => {
@@ -27,8 +35,7 @@ function Navbar() {
     setUser(null);
     refreshCart();
     refreshWishlist();
-    toast.info("you were logouted")
-
+    toast.info("You were logged out");
     navigate('/');
     setMenuOpen(false);
   };
@@ -47,15 +54,7 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2 text-yellow-400 text-2xl font-bold">
-          <h1 className="flex items-center gap-2">
-                         ⚽ Elite Eleven
-        
-           {/*<TbPlayFootball className="text-3xl text-white" />*/}
-          </h1>
-         
-        
-         
-             
+          <h1 className="flex items-center gap-2">⚽ Elite Eleven</h1>
         </div>
 
         {/* Hamburger Button */}
@@ -91,29 +90,42 @@ function Navbar() {
             <span className="absolute -top-2 -right-2 bg-yellow-400 text-xs rounded-full px-1 text-black">{cartCount}</span>
           </Link>
 
-         <Link to="/wishlist" className="relative text-xl text-white">
-    <FaHeart />
-    <span className="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs rounded-full w-4 h-4 flex items-center justify-center">
-      {wishlistCount}
-    </span>
-  </Link>
+          <Link to="/wishlist" className="relative text-xl text-white">
+            <FaHeart />
+            <span className="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs rounded-full w-4 h-4 flex items-center justify-center">
+              {wishlistCount}
+            </span>
+          </Link>
 
-  <Link to="/orders" className="flex items-center space-x-1 text-md text-white">
-    <span> 🛒</span>  {/* Optional icon for Orders */}
-    <span>Orders</span>
-  </Link>
+          <Link to="/orders" className="flex items-center space-x-1 text-md text-white">
+            <span>🧾</span>
+            <span>Orders</span>
+          </Link>
 
           {user && (
-                 
-            <span className="text-white text-sm"> Hi, {user.name}</span>
+            <>
+              <Link to="/profile" className="flex items-center gap-2 text-white hover:underline">
+                {profilePic ? (
+                  <img src={profilePic} alt="Profile" className="w-8 h-8 rounded-full object-cover" />
+                ) : (
+                  <FaUserCircle className="text-2xl" />
+                )}
+                <span className="text-sm">Hi, {user.name}</span>
+              </Link>
+              <button
+                onClick={handleLogout}
+                className="bg-white text-black px-3 py-1 rounded hover:bg-yellow-500 text-sm"
+              >
+                Logout
+              </button>
+            </>
           )}
 
-          {user ? (
-            <button onClick={handleLogout} className="bg-white text-black px-3 py-1 rounded hover:bg-yellow-500 text-sm">
-              Logout
-            </button>
-          ) : (
-            <Link to="/login" className="text-white text-sm border border-white px-3 py-1 rounded hover:bg-yellow-500 hover:text-black">
+          {!user && (
+            <Link
+              to="/login"
+              className="text-white text-sm border border-white px-3 py-1 rounded hover:bg-yellow-500 hover:text-black"
+            >
               Login
             </Link>
           )}
@@ -143,15 +155,34 @@ function Navbar() {
             <Link to="/wishlist" onClick={() => setMenuOpen(false)} className="flex items-center gap-2">
               <FaHeart /> Wishlist ({wishlistCount})
             </Link>
-            <Link to="/orders" onClick={() => setMenuOpen(false)} className="flex items-center gap-2 text-xl ">
+            <Link to="/orders" onClick={() => setMenuOpen(false)} className="flex items-center gap-2 text-xl">
               🧾 Orders
             </Link>
+
+            {user && (
+              <Link to="/profile" onClick={() => setMenuOpen(false)} className="flex items-center gap-2">
+                {profilePic ? (
+                  <img src={profilePic} alt="Profile" className="w-6 h-6 rounded-full object-cover" />
+                ) : (
+                  <FaUserCircle />
+                )}
+                <span>Profile</span>
+              </Link>
+            )}
+
             {user ? (
-              <button onClick={handleLogout} className="bg-black text-white px-3 py-1 rounded hover:bg-yellow-500 hover:text-black">
+              <button
+                onClick={handleLogout}
+                className="bg-black text-white px-3 py-1 rounded hover:bg-yellow-500 hover:text-black"
+              >
                 Logout
               </button>
             ) : (
-              <Link to="/login" onClick={() => setMenuOpen(false)} className="border border-black px-3 py-1 rounded hover:bg-yellow-500 hover:text-black">
+              <Link
+                to="/login"
+                onClick={() => setMenuOpen(false)}
+                className="border border-black px-3 py-1 rounded hover:bg-yellow-500 hover:text-black"
+              >
                 Login
               </Link>
             )}

@@ -17,9 +17,7 @@ function ProductListing({ selectedCategory }) {
 
   useEffect(() => {
     fetchProducts();
-    if (currentUserId) {
-      fetchCart();
-    }
+    if (currentUserId) fetchCart();
   }, [currentUserId]);
 
   const fetchProducts = async () => {
@@ -27,7 +25,7 @@ function ProductListing({ selectedCategory }) {
       const res = await axios.get('http://localhost:5000/products');
       setProducts(res.data);
     } catch (error) {
-      console.error('Error fetching products', error);
+      console.error('Error fetching products:', error);
       toast.error('Error fetching products');
     }
   };
@@ -37,19 +35,24 @@ function ProductListing({ selectedCategory }) {
       const res = await axios.get(`http://localhost:5000/users/${currentUserId}`);
       setCart(res.data.cart || []);
     } catch (error) {
-      console.error('Error fetching cart', error);
+      console.error('Error fetching cart:', error);
       toast.error('Error fetching cart');
     }
   };
 
   const toggleWishlist = async (product) => {
+    if (!currentUserId) {
+      toast.info("Please log in to manage your wishlist");
+      return;
+    }
+
     try {
       const res = await axios.get(`http://localhost:5000/users/${currentUserId}`);
       const user = res.data;
-      const exists = user.wishlist.some((w) => w.productId === product.id);
+      const exists = user.wishlist?.some(w => w.productId === product.id);
 
       const updatedWishlist = exists
-        ? user.wishlist.filter((w) => w.productId !== product.id)
+        ? user.wishlist.filter(w => w.productId !== product.id)
         : [
             ...user.wishlist,
             {
@@ -59,6 +62,7 @@ function ProductListing({ selectedCategory }) {
               image: product.image,
               category: product.category,
               rating: product.rating,
+              stock: product.stock,
             },
           ];
 
@@ -67,7 +71,7 @@ function ProductListing({ selectedCategory }) {
       });
 
       refreshWishlist();
-      toast.success(exists ? 'Item removed from wishlist' : 'Item added to wishlist');
+      toast.success(exists ? 'Removed from wishlist' : 'Added to wishlist');
     } catch (err) {
       console.error('Error updating wishlist:', err);
       toast.error('Error updating wishlist');
@@ -75,48 +79,56 @@ function ProductListing({ selectedCategory }) {
   };
 
   const toggleCart = async (product) => {
+    if (!currentUserId) {
+      toast.info("Please log in to manage your cart");
+      return;
+    }
+
+    if (product.stock <= 0) {
+      toast.warning("Out of stock");
+      return;
+    }
+
     try {
       const res = await axios.get(`http://localhost:5000/users/${currentUserId}`);
       const user = res.data;
       const userCart = user.cart || [];
+      const existing = userCart.find(item => item.productId === product.id);
 
-      const existing = userCart.find((item) => item.productId === product.id);
       let updatedCart;
-
       if (existing) {
-        updatedCart = userCart.filter((item) => item.productId !== product.id);
-        toast.info('Item removed from cart');
-        refreshCart();
+        updatedCart = userCart.filter(item => item.productId !== product.id);
+        toast.info('Removed from cart');
       } else {
         updatedCart = [
           ...userCart,
           {
             productId: product.id,
-            quantity: 1,
             name: product.name,
             price: product.price,
             image: product.image,
             category: product.category,
             rating: product.rating,
+            stock: product.stock,
           },
         ];
-        toast.success('Item added to cart');
-        refreshCart();
+        toast.success('Added to cart');
       }
 
       await axios.patch(`http://localhost:5000/users/${currentUserId}`, {
         cart: updatedCart,
       });
 
-      fetchCart();
+      setCart(updatedCart);
+      refreshCart();
     } catch (error) {
-      console.error('Error toggling cart', error);
+      console.error('Error updating cart:', error);
       toast.error('Error updating cart');
     }
   };
 
   const filtered = selectedCategory
-    ? products.filter((p) => p.category === selectedCategory)
+    ? products.filter(p => p.category === selectedCategory)
     : products;
 
   return (
@@ -125,9 +137,10 @@ function ProductListing({ selectedCategory }) {
         {selectedCategory ? `${selectedCategory} Products` : 'All Products'}
       </h2>
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {filtered.map((product) => {
-          const isWishlisted = wishlist.some((w) => w.productId === product.id);
-          const isInCart = cart.some((c) => c.productId === product.id);
+        {filtered.map(product => {
+          const isWishlisted = wishlist.some(w => w.productId === product.id);
+          const isInCart = cart.some(c => c.productId === product.id);
+          const outOfStock = product.stock <= 0;
 
           return (
             <div
@@ -143,6 +156,9 @@ function ProductListing({ selectedCategory }) {
                 <h3 className="mt-2 text-lg font-bold">{product.name}</h3>
                 <p className="text-sm text-gray-500">{product.category}</p>
                 <p className="text-green-800 font-bold">₹ {product.price}</p>
+                <p className={`text-sm ${outOfStock ? 'text-red-600' : 'text-gray-600'}`}>
+                  {outOfStock ? 'Out of Stock' : `In Stock: ${product.stock}`}
+                </p>
                 <div className="text-yellow-500">{'★'.repeat(product.rating)}</div>
               </Link>
 
@@ -158,6 +174,8 @@ function ProductListing({ selectedCategory }) {
               <button
                 onClick={() => toggleCart(product)}
                 className="absolute bottom-3 right-3 text-xl"
+                disabled={outOfStock}
+                title={outOfStock ? 'Out of Stock' : ''}
               >
                 {isInCart ? <FaShoppingCart className="text-green-600" /> : <FaCartPlus />}
               </button>
