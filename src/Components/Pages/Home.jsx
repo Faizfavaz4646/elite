@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import MiniCategoryNav from '../MiniCategoryNav';
 import ImageSlider from '../ImageSlider';
-import ProductListing from '../Productlist/ProductListing';
+import ProductListing from '../productlist/ProductListing';
 
 import EliteElevenGoldenEmblem from '../../assets/images/Elite Eleven Golden Emblem.png';
 
