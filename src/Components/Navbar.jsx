@@ -6,7 +6,7 @@ import { useWishlist, useWishlistCount } from '../WishlistContext';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
-function Navbar() {
+function NavBar() {
   const [user, setUser] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [menuOpen, setMenuOpen] = useState(false);
@@ -193,4 +193,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default NavBar;

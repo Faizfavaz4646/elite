@@ -230,7 +230,17 @@
       "email": "nefu@gmail.com",
       "password": "1234567890",
       "cart": [],
-      "wishlist": [],
+      "wishlist": [
+        {
+          "productId": "3",
+          "name": "NIVIA Goalkeeper Gloves",
+          "price": "350",
+          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSZesME9ofwmlFTkC4p0CW4WEbWK42YuEdB1AevVLNfLV88W3Ef_EqOvxJxSod7E_J0hwchs92KcJZY1pj_rcN3Z6nmWB7ZZQLHGN-8FfbABKYoElf6y9GjN0EGXcDFPqoSgPbp5vSAeg&usqp=CAc",
+          "category": "Gloves",
+          "rating": 4.2,
+          "stock": 10
+        }
+      ],
       "photo": "https://via.placeholder.com/150",
       "address": {
         "line": "gfhfhgfjhghj",
@@ -740,9 +750,77 @@
       "totalAmount": 2548,
       "paymentMethod": "Cash on Delivery",
       "cardDetails": null,
-      "status": "Paid",
+      "status": "Cancelled",
       "date": "2025-05-14T19:09:03.541Z",
-      "expectedDeliveryDate": "2025-05-17T19:09:03.541Z"
+      "expectedDeliveryDate": "2025-05-17T19:09:03.541Z",
+      "cancellationReason": "wdwsdf"
+    },
+    {
+      "id": "30a6",
+      "userId": "3493",
+      "items": [
+        {
+          "productId": "18",
+          "name": "NIVIA Football",
+          "price": 670,
+          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTyElTuctlNBouTxnNiLu_60Imr2CuIAykG1c9DufhLqGSS75EKahfaOGi8Tq1dKbFaL_lGQCk1c5zykOe3NtN4-eTgV2mO8Q2PllOT-Sq-bzD7qOnlEZoCHb9_E-EQ4DacbcGo1jfA7A&usqp=CAc",
+          "stock": 10,
+          "quantity": 1
+        },
+        {
+          "productId": "3",
+          "name": "NIVIA Goalkeeper Gloves",
+          "price": "350",
+          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSZesME9ofwmlFTkC4p0CW4WEbWK42YuEdB1AevVLNfLV88W3Ef_EqOvxJxSod7E_J0hwchs92KcJZY1pj_rcN3Z6nmWB7ZZQLHGN-8FfbABKYoElf6y9GjN0EGXcDFPqoSgPbp5vSAeg&usqp=CAc",
+          "category": "Gloves",
+          "rating": 4.2,
+          "stock": 10,
+          "quantity": 1
+        },
+        {
+          "productId": "4",
+          "name": "NIKE Soccer Ball - FIFA Approved",
+          "price": "1249",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBnRUVH8QeLG8ppTlaUR7ed5kjW0G6U7dwfQ&s",
+          "category": "Balls",
+          "rating": 4.2,
+          "stock": 10,
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 2269,
+      "paymentMethod": "Debit/Credit Card",
+      "cardDetails": {
+        "name": "faiz favaz pm",
+        "number": "5354353233453563",
+        "expiry": "02/2029",
+        "cvv": "112"
+      },
+      "status": "Paid",
+      "date": "2025-05-16T04:42:21.822Z",
+      "expectedDeliveryDate": "2025-05-19T04:42:21.822Z"
+    },
+    {
+      "id": "01d3",
+      "userId": "3493",
+      "items": [
+        {
+          "productId": "3",
+          "name": "NIVIA Goalkeeper Gloves",
+          "price": "350",
+          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSZesME9ofwmlFTkC4p0CW4WEbWK42YuEdB1AevVLNfLV88W3Ef_EqOvxJxSod7E_J0hwchs92KcJZY1pj_rcN3Z6nmWB7ZZQLHGN-8FfbABKYoElf6y9GjN0EGXcDFPqoSgPbp5vSAeg&usqp=CAc",
+          "category": "Gloves",
+          "rating": 4.2,
+          "stock": 10,
+          "quantity": 1
+        }
+      ],
+      "totalAmount": 400,
+      "paymentMethod": "Cash on Delivery",
+      "cardDetails": null,
+      "status": "Paid",
+      "date": "2025-05-16T06:33:02.040Z",
+      "expectedDeliveryDate": "2025-05-19T06:33:02.041Z"
     }
   ],
   "products": [
@@ -1248,14 +1326,12 @@
       "reviewCount": 85
     },
     {
-      "id": "f0be",
       "name": "Puma ULTRA Match Protect RC Unisex White Goalkeeper Gloves At Nykaa",
       "price": "3200",
-      "stock": 10,
       "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRXejYfQU4zE4fvthPdmllHq3rEw_ttZJmuOJYttnUYD93W2Rb-Pl5RDL_-6fpsoOSwcI6zl1d46Zl9qL0O965oW4sGwqt2QH7uR899QUHSKSiHcgiyvi1X",
       "category": "Gloves",
-      "rating": 4.2,
-      "reviewCount": 85
+      "stock": 14,
+      "id": "f0be"
     }
   ]
 }

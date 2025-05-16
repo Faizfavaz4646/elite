@@ -4,7 +4,7 @@ import Home from './Components/Pages/Home';
 import Cart from './Components/Pages/Cart/Cart';
 import Login from './Components/Pages/Login/Login';
 import Wishlist from './Components/Pages/Wishlist';
-import Navbar from './Components/Navbar';
+import Navbar from './Components/NavBar';
 import SignUp from './Components/Pages/Signup/SignUp';
 import ProductDetails from './Components/ProductDetails';
 import ProductListing from './Components/Productlist/ProductListing';
