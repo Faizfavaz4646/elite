@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 const AddProduct = () => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
-  const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
   const [category, setCategory] = useState('');
   const [error, setError] = useState('');
@@ -34,7 +33,6 @@ const AddProduct = () => {
       await axios.post('http://localhost:5000/products', {
         name,
         price,
-        description,
         image,
         category,
       });

@@ -65,8 +65,8 @@ const EditProduct = () => {
 
   return (
     <div className="px-4 py-6 sm:px-6 md:px-10 lg:px-20 max-w-3xl mx-auto">
-      <div className="bg-blue-500 py-4 px-4 rounded-t">
-        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white text-center">
+      <div className="bg-blue-100 py-4 px-4 rounded">
+        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-black text-center">
           Edit Product
         </h1>
       </div>

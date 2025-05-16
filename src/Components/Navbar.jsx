@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaShoppingCart, FaHome, FaHeart, FaBars, FaTimes, FaUserCircle } from 'react-icons/fa'; 
+import { FaShoppingCart, FaHome, FaHeart, FaBars, FaTimes, FaUserCircle } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import { useCart, useCartCount } from '../CartContext';
 import { useWishlist, useWishlistCount } from '../WishlistContext';
@@ -67,7 +67,7 @@ function Navbar() {
           </button>
         </div>
 
-        {/* Search Bar */}
+        {/* Desktop Search Bar */}
         <form
           onSubmit={handleSearchSubmit}
           className="hidden md:flex items-center justify-center w-1/3"
@@ -81,7 +81,7 @@ function Navbar() {
           />
         </form>
 
-        {/* Desktop Nav */}
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
           <Link to="/" className="text-white text-xl"><FaHome /></Link>
 
@@ -135,7 +135,7 @@ function Navbar() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-yellow-100 px-4 pb-4">
-          {/* Search */}
+          {/* Mobile Search Bar */}
           <form onSubmit={handleSearchSubmit} className="mb-4">
             <input
               type="text"
@@ -146,7 +146,7 @@ function Navbar() {
             />
           </form>
 
-          {/* Nav Items */}
+          {/* Mobile Nav Items */}
           <div className="flex flex-col gap-4 text-black font-semibold text-lg">
             <Link to="/" onClick={() => setMenuOpen(false)} className="flex items-center gap-2"><FaHome /> Home</Link>
             <Link to="/cart" onClick={() => setMenuOpen(false)} className="flex items-center gap-2">

@@ -21,6 +21,7 @@ import EditProduct from './Admins/EditProduct';
 import AdminManageOrders from './Admins/AdminManageOrders';
 import AdminUserManagement from './Admins/AdminUserManagement';
 import AdminSideBar from './Admins/AdminSideBar';
+import SearchResults from './Components/SearchResults';
 
 function App() {
   const location = useLocation();
@@ -36,7 +37,7 @@ function App() {
           {!hideNavbar && <Navbar />}
 
       <Routes>
-  {/* Public/User Routes (same as before) */}
+  {/* Public/User Routes  */}
   <Route path="/" element={<Home />} />
   <Route
     path="/login"
@@ -50,6 +51,7 @@ function App() {
   <Route path="/payment" element={<Payment />} />
   <Route path="/orders" element={<Orders />} />
   <Route path="/profile" element={<EditProfile />} />
+  <Route path="/search" element={<SearchResults />} />
 
   {/* Admin Routes with Layout */}
   <Route
@@ -62,7 +64,7 @@ function App() {
   >
     <Route path='/admin/dashboard' element={<AdminDashboard />} />
     <Route path='/admin/products' element={<AdminProductList />} />
-    <Route path="admin/products/add" element={<AddProduct />} />
+    <Route path="/admin/products/add" element={<AddProduct />} />
     <Route path="edit-product/:id" element={<EditProduct />} />
     <Route path="/admin/manage/order" element={<AdminManageOrders />} />
     <Route path="/admin/user/manage" element={<AdminUserManagement />} />
