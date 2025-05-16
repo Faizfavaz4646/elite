@@ -25,8 +25,8 @@ import NavBar from './Components/NavBar';
 
 function App() {
   const location = useLocation();
-  const hideNavbarRoutes = ['/login', '/signup','/admin/dashboard','/admin/products','/admin/products/add','/admin/user/manage','/admin/manage/order'];
-  const hideNavbar = hideNavbarRoutes.includes(location.pathname) || location.pathname.startsWith('/admin/edit-product/');
+  const hideNavBarRoutes = ['/login', '/signup','/admin/dashboard','/admin/products','/admin/products/add','/admin/user/manage','/admin/manage/order'];
+  const hideNavBar = hideNavBarRoutes.includes(location.pathname) || location.pathname.startsWith('/admin/edit-product/');
   const hideFooterRoutes = ['/login', '/signup'];
 
   const user = JSON.parse(localStorage.getItem('user'));
@@ -34,7 +34,7 @@ function App() {
 
   return (
     <>
-          {!hideNavbar && <NavBar />}
+          {!hideNavBar && <NavBar />}
 
       <Routes>
   {/* Public/User Routes  */}
