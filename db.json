@@ -229,7 +229,17 @@
       "name": "nefu",
       "email": "nefu@gmail.com",
       "password": "1234567890",
-      "cart": [],
+      "cart": [
+        {
+          "productId": "14",
+          "name": "Adidas Messi #10 Premium Soccer jersey",
+          "price": "600",
+          "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRoLJ6qhiOh3mZ_xRIrM7y67W91oFraEs_FiyJmPHmwlMVI0VZ6NZluuSxMqfIkKUTFxJI_bFXm25w-IFz0XoJdHTWHBsi7fz99VIz-CHVDuTamzpnQVF2fcw",
+          "category": "Jerseys",
+          "rating": 4.2,
+          "stock": 10
+        }
+      ],
       "wishlist": [
         {
           "productId": "3",
@@ -237,6 +247,15 @@
           "price": "350",
           "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSZesME9ofwmlFTkC4p0CW4WEbWK42YuEdB1AevVLNfLV88W3Ef_EqOvxJxSod7E_J0hwchs92KcJZY1pj_rcN3Z6nmWB7ZZQLHGN-8FfbABKYoElf6y9GjN0EGXcDFPqoSgPbp5vSAeg&usqp=CAc",
           "category": "Gloves",
+          "rating": 4.2,
+          "stock": 10
+        },
+        {
+          "productId": "19",
+          "name": "PUMA ATTACANTO Football Shin Guards",
+          "price": "199",
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTUV6kXZc-OxWhLA4s_hq27L21n25hhJ7gKK1l6gGCFwQsKtzwbLnULepPZ1UmOG-nUSNN6MbToL6ZOrtVl4uaiI3Bxk5UXXRS5Hfb_xiTdD03_2oKSu9um",
+          "category": "Shin pads",
           "rating": 4.2,
           "stock": 10
         }
