@@ -20,7 +20,7 @@ import AdminUserManagement from './admins/AdminUserManagement';
 import NavBar from "./components/NavBar"
 import AdminDashboard from './Admins/AdminDashboard';
 import AdminSideBar from './Admins/AdminSideBar';
-import SearchResults from './Components/SearchResults';
+import SearchResults from './components/SearchResults';
 
 function App() {
   const location = useLocation();
