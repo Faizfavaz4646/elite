@@ -1,4 +1,3 @@
-import React from 'react';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Home from './Components/Pages/Home';
 import Cart from './Components/Pages/Cart/Cart';
