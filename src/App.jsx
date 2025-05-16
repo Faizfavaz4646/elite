@@ -4,7 +4,6 @@ import Home from './Components/Pages/Home';
 import Cart from './Components/Pages/Cart/Cart';
 import Login from './Components/Pages/Login/Login';
 import Wishlist from './Components/Pages/Wishlist';
-import Navbar from './Components/NavBar';
 import SignUp from './Components/Pages/Signup/SignUp';
 import ProductDetails from './Components/ProductDetails';
 import ProductListing from './Components/Productlist/ProductListing';
@@ -22,6 +21,7 @@ import AdminManageOrders from './Admins/AdminManageOrders';
 import AdminUserManagement from './Admins/AdminUserManagement';
 import AdminSideBar from './Admins/AdminSideBar';
 import SearchResults from './Components/SearchResults';
+import NavBar from './Components/NavBar';
 
 function App() {
   const location = useLocation();
@@ -34,7 +34,7 @@ function App() {
 
   return (
     <>
-          {!hideNavbar && <Navbar />}
+          {!hideNavbar && <NavBar />}
 
       <Routes>
   {/* Public/User Routes  */}
