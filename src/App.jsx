@@ -10,7 +10,6 @@ import Orders from './components/orders/Oders';
 import Payment from './components/payment/Payment';
 import { ToastContainer } from 'react-toastify';
 import Footer from './components/Footer';
-import AdminDashboard from './admins/AdminDashboard';
 import AdminProductList from './admins/AdminProductList'; 
 import PrivateRoute from './admins/PrivateRoute';
 import AddProduct from './admins/AddProduct';
@@ -18,9 +17,10 @@ import EditProfile from './components/pages/EditProfile/EditProfile';
 import EditProduct from './admins/EditProduct';
 import AdminManageOrders from './admins/AdminManageOrders';
 import AdminUserManagement from './admins/AdminUserManagement';
-import AdminSideBar from './admins/AdminSideBar';
-import SearchResults from './components/SearchResults';
 import NavBar from "./components/NavBar"
+import AdminDashboard from './Admins/AdminDashboard';
+import AdminSideBar from './Admins/AdminSideBar';
+import SearchResults from './Components/SearchResults';
 
 function App() {
   const location = useLocation();
