@@ -21,7 +21,7 @@ import AdminManageOrders from './Admins/AdminManageOrders';
 import AdminUserManagement from './Admins/AdminUserManagement';
 import AdminSideBar from './Admins/AdminSideBar';
 import SearchResults from './Components/SearchResults';
-import NavBar from './Components/NavBar';
+import NavBar from "./Components/NavBar.jsx"
 
 function App() {
   const location = useLocation();
