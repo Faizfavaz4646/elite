@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
-import Home from '../src/components/page/Home'
+import Home from './components/page/Home';
 import Cart from './components/page/Cart/Cart';
 import Login from './components/page/Login/Login';
 import Wishlist from './components/page/Wishlist';
