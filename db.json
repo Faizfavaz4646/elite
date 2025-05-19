@@ -229,37 +229,8 @@
       "name": "nefu",
       "email": "nefu@gmail.com",
       "password": "1234567890",
-      "cart": [
-        {
-          "productId": "14",
-          "name": "Adidas Messi #10 Premium Soccer jersey",
-          "price": "600",
-          "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRoLJ6qhiOh3mZ_xRIrM7y67W91oFraEs_FiyJmPHmwlMVI0VZ6NZluuSxMqfIkKUTFxJI_bFXm25w-IFz0XoJdHTWHBsi7fz99VIz-CHVDuTamzpnQVF2fcw",
-          "category": "Jerseys",
-          "rating": 4.2,
-          "stock": 10
-        }
-      ],
-      "wishlist": [
-        {
-          "productId": "3",
-          "name": "NIVIA Goalkeeper Gloves",
-          "price": "350",
-          "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSZesME9ofwmlFTkC4p0CW4WEbWK42YuEdB1AevVLNfLV88W3Ef_EqOvxJxSod7E_J0hwchs92KcJZY1pj_rcN3Z6nmWB7ZZQLHGN-8FfbABKYoElf6y9GjN0EGXcDFPqoSgPbp5vSAeg&usqp=CAc",
-          "category": "Gloves",
-          "rating": 4.2,
-          "stock": 10
-        },
-        {
-          "productId": "19",
-          "name": "PUMA ATTACANTO Football Shin Guards",
-          "price": "199",
-          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTUV6kXZc-OxWhLA4s_hq27L21n25hhJ7gKK1l6gGCFwQsKtzwbLnULepPZ1UmOG-nUSNN6MbToL6ZOrtVl4uaiI3Bxk5UXXRS5Hfb_xiTdD03_2oKSu9um",
-          "category": "Shin pads",
-          "rating": 4.2,
-          "stock": 10
-        }
-      ],
+      "cart": [],
+      "wishlist": [],
       "photo": "https://via.placeholder.com/150",
       "address": {
         "line": "gfhfhgfjhghj",
@@ -840,6 +811,31 @@
       "status": "Paid",
       "date": "2025-05-16T06:33:02.040Z",
       "expectedDeliveryDate": "2025-05-19T06:33:02.041Z"
+    },
+    {
+      "id": "f906",
+      "userId": "3493",
+      "items": [
+        {
+          "productId": "32",
+          "name": "Specter 2.0 Soccer Boot",
+          "price": 450,
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTwXZ8hkH7MuB1DnQdSlmV7AebI4spotGO9OR-UaS0_4mUuHUL8RQv-k3d9vgxK0fA8lLEhUtAIzsHNFI9KM4ECNH7WLT2i1mkWGu0YxHGMzRiop9ikLnkX",
+          "size": [
+            38,
+            40,
+            42,
+            44
+          ],
+          "stock": 10
+        }
+      ],
+      "totalAmount": 500,
+      "paymentMethod": "Cash on Delivery",
+      "cardDetails": null,
+      "status": "Paid",
+      "date": "2025-05-19T06:52:23.094Z",
+      "expectedDeliveryDate": "2025-05-22T06:52:23.095Z"
     }
   ],
   "products": [

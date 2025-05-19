@@ -133,7 +133,7 @@ const PaymentPage = () => {
 
   // 🧾 Default Payment Form
   return (
-    <div className="max-w-2xl mx-auto mt-10 p-7 shadow-lg rounded-xl bg-white">
+    <div className="max-w-2xl mx-auto mt-20 p-7 shadow-lg rounded-xl bg-white">
       <h2 className="text-3xl font-bold  mb-6 text-gray-800">Payment Page</h2>
 
       <div className="mb-6">
