@@ -95,7 +95,7 @@ function SignUp() {
                 )}
               </div>
 
-              {/* ✅ Photo URL */}
+              {/*Photo URL */}
               <div>
                 <label htmlFor="photo" className="block text-sm font-medium text-black">Profile Photo URL</label>
                 <Field name="photo" className="w-full mt-1 p-2 border border-gray-300 rounded-lg" />
