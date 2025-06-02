@@ -1,7 +1,7 @@
 
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 
-import Cart from './components/page/cart/Cart';
+import Cart from './components/page/Cart/Cart';
 import Login from './components/page/Login/Login';
 import Wishlist from './components/page/Wishlist';
 import SignUp from './components/page/Signup/SignUp';
