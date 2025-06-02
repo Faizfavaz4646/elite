@@ -1,5 +1,6 @@
+
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
-import Home from "./components/page/Home";
+
 import Cart from './components/page/Cart/Cart';
 import Login from './components/page/Login/Login';
 import Wishlist from './components/page/Wishlist';
@@ -18,9 +19,11 @@ import EditProduct from './admins/EditProduct';
 import AdminManageOrders from './admins/AdminManageOrders';
 import AdminUserManagement from './admins/AdminUserManagement';
 import NavBar from "./components/NavBar"
-import AdminDashboard from './Admins/AdminDashboard';
-import AdminSideBar from './Admins/AdminSideBar';
-import SearchResults from './Components/SearchResults';
+import AdminDashboard from './admins/AdminDashboard';
+import AdminSideBar from './admins/AdminSideBar';
+import SearchResults from './components/SearchResults';
+import Home from './components/page/Home';
+
 
 function App() {
   const location = useLocation();

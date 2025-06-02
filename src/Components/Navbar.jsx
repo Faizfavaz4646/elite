@@ -98,7 +98,7 @@ function NavBar() {
           </Link>
 
           <Link to="/orders" className="flex items-center space-x-1 text-md text-white">
-            <span>🧾</span>
+            <span>👑</span>
             <span>Orders</span>
           </Link>
 

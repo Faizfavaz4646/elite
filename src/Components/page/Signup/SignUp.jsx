@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
-import { SignupValidation } from '../../../components/SignupValidation';  
+import { SignupValidation } from '../../SignupValidation';  
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -10,7 +10,7 @@ const initialValues = {
   email: '',
   password: '',
   confirmpassword: '',
-  photo: '', // ✅ New field
+  photo: '', 
   address: '',
   city: '',
   state: '',
