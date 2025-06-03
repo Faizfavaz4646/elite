@@ -5,17 +5,25 @@ import App from './App.jsx';
 import { BrowserRouter} from "react-router-dom";
 import { CartProvider } from './CartContext.jsx';
 import { WishlistProvider } from './WishlistContext.jsx';
+import {SearchProvider} from './components/SearchContext.jsx'
+import ScrollToTop from './ScrollToTop.jsx';
 
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+   
+    <SearchProvider>
     <BrowserRouter>
+     <ScrollToTop />
     <CartProvider>
-      <WishlistProvider>
+     <WishlistProvider>  
     <App />
    </WishlistProvider>
     </CartProvider>
+   
     </BrowserRouter>
+    </SearchProvider>
+    
   </StrictMode>
 )

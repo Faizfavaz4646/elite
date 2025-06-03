@@ -5,10 +5,12 @@ import { useCart, useCartCount } from '../CartContext';
 import { useWishlist, useWishlistCount } from '../WishlistContext';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import {useSearch} from './SearchContext' 
 
 function NavBar() {
+
   const [user, setUser] = useState(null);
-  const [searchQuery, setSearchQuery] = useState('');
+  const { searchQuery, setSearchQuery } = useSearch();
   const [menuOpen, setMenuOpen] = useState(false);
   const [profilePic, setProfilePic] = useState('');
   const location = useLocation();
@@ -40,15 +42,11 @@ function NavBar() {
     setMenuOpen(false);
   };
 
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
-      setSearchQuery('');
-      setMenuOpen(false);
-    }
-  };
-
+ const handleSearchSubmit = (e) => {
+  e.preventDefault();
+  // Just close menu, no navigation
+  setMenuOpen(false);
+};
   return (
     <header className="fixed top-0 left-0 w-full bg-black z-50 shadow-md">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">

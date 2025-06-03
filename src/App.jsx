@@ -1,6 +1,5 @@
 
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
-
 import Cart from './components/page/Cart/Cart';
 import Login from './components/page/Login/Login';
 import Wishlist from './components/page/Wishlist';
@@ -21,8 +20,10 @@ import AdminUserManagement from './admins/AdminUserManagement';
 import NavBar from "./components/NavBar"
 import AdminDashboard from './admins/AdminDashboard';
 import AdminSideBar from './admins/AdminSideBar';
-import SearchResults from './components/SearchResults';
 import Home from './components/page/Home';
+import About from './components/page/About';
+import PrivacyPolicy from './components/page/PrivacyPolicy';
+
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
 
   return (
     <>
+    
           {!hideNavBar && <NavBar />}
 
       <Routes>
@@ -53,7 +55,9 @@ function App() {
   <Route path="/payment" element={<Payment />} />
   <Route path="/orders" element={<Orders />} />
   <Route path="/profile" element={<EditProfile />} />
-  <Route path="/search" element={<SearchResults />} />
+  <Route path="/about" element={<About />} />
+  <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+  {/* <Route path="/search" element={<SearchContext />} /> */}
 
   {/* Admin Routes with Layout */}
   <Route
@@ -78,6 +82,7 @@ function App() {
 
       <ToastContainer position="top-right" autoClose={1000} />
       {!hideFooterRoutes.includes(location.pathname) && <Footer />}
+   
     </>
   );
 }

@@ -5,12 +5,14 @@ import { FaHeart, FaRegHeart, FaShoppingCart, FaCartPlus } from 'react-icons/fa'
 import { useWishlist } from '../../WishlistContext';
 import { toast } from 'react-toastify';
 import { useCart } from '../../CartContext';
+import { useSearch } from '../SearchContext' 
 
 function ProductListing({ selectedCategory }) {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const { wishlist, refreshWishlist } = useWishlist();
   const { refreshCart } = useCart();
+  const { searchQuery } = useSearch(); //  Using search from context
 
   const currentUser = JSON.parse(localStorage.getItem('user'));
   const currentUserId = currentUser?.id;
@@ -127,9 +129,12 @@ function ProductListing({ selectedCategory }) {
     }
   };
 
-  const filtered = selectedCategory
-    ? products.filter(p => p.category === selectedCategory)
-    : products;
+  // 🔥 Search + Category Filter
+  const filtered = products.filter(p => {
+    const matchesCategory = selectedCategory ? p.category === selectedCategory : true;
+    const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <div className="p-6">

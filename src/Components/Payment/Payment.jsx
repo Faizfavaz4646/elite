@@ -6,6 +6,8 @@ import Lottie from "lottie-react";
 import loadingAnimation from "../../animations/loading.json";
 import successAnimation from "../../animations/success.json";
 import { useCart } from "../../CartContext";
+import { FaCcApplePay,FaGooglePay, FaCcVisa, FaCcMastercard } from "react-icons/fa";
+
 
 const PaymentPage = () => {
   const { refreshCart } = useCart();
@@ -222,14 +224,20 @@ const PaymentPage = () => {
           </div>
         </div>
       )}
+      <div className="flex gap-2"><FaCcApplePay  size={35} />    <FaGooglePay  size={35} /> <FaCcVisa size={35} /> <FaCcMastercard size={35}/>
+      </div>
+       
+    
 
       <button
         className={`w-full ${outOfStockItems.length > 0 ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600'} text-white px-6 py-2 rounded hover:bg-blue-700 transition font-semibold`}
         onClick={handleSubmit}
         disabled={outOfStockItems.length > 0}
       >
+       
         Pay ₹{paymentMethod === "Cash on Delivery" ? totalAmount + 50 : totalAmount}
       </button>
+      
     </div>
   );
 };
