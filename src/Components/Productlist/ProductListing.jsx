@@ -13,7 +13,6 @@ function ProductListing({ selectedCategory }) {
   const { wishlist, refreshWishlist } = useWishlist();
   const { refreshCart } = useCart();
   const { searchQuery } = useSearch(); //  Using search from context
-
   const currentUser = JSON.parse(localStorage.getItem('user'));
   const currentUserId = currentUser?.id;
 

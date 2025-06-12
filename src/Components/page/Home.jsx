@@ -5,6 +5,7 @@ import ProductListing from '../productlist/ProductListing';
 
 import EliteElevenGoldenEmblem from '../../assets/images/Elite Eleven Golden Emblem.png';
 
+
 function Home() {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
