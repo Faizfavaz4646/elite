@@ -1,16 +1,16 @@
 // src/SearchContext.js
 import { createContext, useContext, useState } from 'react';
 
-const SearchContext = createContext();
+const Searchcontext = createContext();
 
 export const SearchProvider = ({ children }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   return (
-    <SearchContext.Provider value={{ searchQuery, setSearchQuery }}>
+    <Searchcontext.Provider value={{ searchQuery, setSearchQuery }}>
       {children}
-    </SearchContext.Provider>
+    </Searchcontext.Provider>
   );
 };
 
-export const useSearch = () => useContext(SearchContext);
+export const useSearch = () => useContext(Searchcontext);
