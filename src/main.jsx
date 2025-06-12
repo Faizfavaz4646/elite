@@ -6,7 +6,8 @@ import { BrowserRouter} from "react-router-dom";
 import { CartProvider } from './CartContext.jsx';
 import { WishlistProvider } from './WishlistContext.jsx';
 import ScrollToTop from './ScrollToTop.jsx';
-import { SearchProvider } from './components/SearchContext';
+import { SearchProvider } from './components/SearchContext.jsx';
+
 
 
 
@@ -24,6 +25,7 @@ createRoot(document.getElementById('root')).render(
    
     </BrowserRouter>
     </SearchProvider>
+
     
   </StrictMode>
 )
