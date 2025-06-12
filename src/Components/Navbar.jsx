@@ -5,7 +5,7 @@ import { useCart, useCartCount } from '../CartContext';
 import { useWishlist, useWishlistCount } from '../WishlistContext';
 import { toast } from 'react-toastify';
 import axios from 'axios';
-import {useSearch} from './SearchContext' 
+import {useSearch} from './Searchcontext' 
 
 function NavBar() {
 

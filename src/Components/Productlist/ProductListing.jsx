@@ -5,7 +5,7 @@ import { FaHeart, FaRegHeart, FaShoppingCart, FaCartPlus } from 'react-icons/fa'
 import { useWishlist } from '../../WishlistContext';
 import { toast } from 'react-toastify';
 import { useCart } from '../../CartContext';
-import { useSearch } from '../SearchContext' 
+import { useSearch } from '../Searchcontext' 
 
 function ProductListing({ selectedCategory }) {
   const [products, setProducts] = useState([]);
