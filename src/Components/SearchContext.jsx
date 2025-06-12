@@ -1,4 +1,4 @@
-// src/SearchContext.js
+
 import { createContext, useContext, useState } from 'react';
 
 const Searchcontext = createContext();
