@@ -6,7 +6,7 @@ import { BrowserRouter} from "react-router-dom";
 import { CartProvider } from './CartContext.jsx';
 import { WishlistProvider } from './WishlistContext.jsx';
 import ScrollToTop from './ScrollToTop.jsx';
-import { SearchProvider } from './Components/Searchcontext.jsx';
+import { SearchProvider } from './Components/Searchcontext';
 
 
 
