@@ -16,7 +16,7 @@ export const CartProvider = ({ children }) => {
     }
 
     try {
-      const res = await axios.get(`http://localhost:5000/users/${currentUserId}`);
+      const res = await axios.get(`http://localhost:10000/users/${currentUserId}`);
       setCart(res.data.cart || []);
     } catch (err) {
       console.error("Failed to refresh cart:", err);

@@ -12,7 +12,7 @@ const AdminProductList = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/products');
+      const res = await axios.get('http://localhost:10000/products');
       setProducts(res.data);
     } catch (error) {
       setError('Error fetching products');
@@ -25,7 +25,7 @@ const AdminProductList = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5000/products/${id}`);
+      await axios.delete(`http://localhost:10000/products/${id}`);
       fetchProducts(); // Refresh after delete
     } catch (error) {
       console.error('Error deleting product:', error);

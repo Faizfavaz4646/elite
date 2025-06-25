@@ -10,7 +10,7 @@ const AdminUserManagement = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/users');
+      const res = await axios.get('http://localhost:10000/users');
       const onlyUsers = res.data.filter(user => user.role === 'user');
       setUsers(onlyUsers);
     } catch (error) {
@@ -20,7 +20,7 @@ const AdminUserManagement = () => {
 
   const toggleBlockStatus = async (userId, isBlocked) => {
     try {
-      await axios.patch(`http://localhost:5000/users/${userId}`, {
+      await axios.patch(`http://localhost:10000/users/${userId}`, {
         isBlocked: !isBlocked,
       });
       fetchUsers();

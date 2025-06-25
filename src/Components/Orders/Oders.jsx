@@ -17,12 +17,12 @@ function Orders() {
   useEffect(() => {
     if (currentUserId) {
       axios
-        .get(`http://localhost:5000/orders?userId=${currentUserId}`)
+        .get(`http://localhost:10000/orders?userId=${currentUserId}`)
         .then((res) => setOrders(res.data))
         .catch((err) => console.error('Error fetching orders:', err));
 
       axios
-        .get('http://localhost:5000/products')
+        .get('http://localhost:10000/products')
         .then((res) => setStockData(res.data))
         .catch((err) => console.error('Error fetching product stock:', err));
     }
@@ -32,7 +32,7 @@ function Orders() {
     if (!cancelReason) return alert('Please enter a reason for cancellation.');
 
     try {
-      await axios.patch(`http://localhost:5000/orders/${orderId}`, {
+      await axios.patch(`http://localhost:10000/orders/${orderId}`, {
         status: 'Cancelled',
         cancellationReason: cancelReason,
       });
@@ -40,7 +40,7 @@ function Orders() {
       for (let item of orderItems) {
         const product = stockData.find((prod) => prod.id === item.id);
         if (product) {
-          await axios.patch(`http://localhost:5000/products/${item.id}`, {
+          await axios.patch(`http://localhost:10000/products/${item.id}`, {
             stock: product.stock + item.quantity,
           });
         }
@@ -83,13 +83,13 @@ function Orders() {
         totalAmount: cartItems.reduce((total, item) => total + item.price * item.quantity, 0),
       };
 
-      const response = await axios.post('http://localhost:5000/orders', orderData);
+      const response = await axios.post('http://localhost:10000/orders', orderData);
 
       // Deduct stock
       for (let item of cartItems) {
         const product = stockData.find((prod) => prod.id === item.id);
         if (product) {
-          await axios.patch(`http://localhost:5000/products/${item.id}`, {
+          await axios.patch(`http://localhost:10000/products/${item.id}`, {
             stock: product.stock - item.quantity,
           });
         }

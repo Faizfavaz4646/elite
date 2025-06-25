@@ -26,7 +26,7 @@ function NavBar() {
     setUser(userData);
 
     if (userData) {
-      axios.get(`http://localhost:5000/users/${userData.id}`)
+      axios.get(`http://localhost:10000/users/${userData.id}`)
         .then(res => setProfilePic(res.data.profilePic || ''))
         .catch(err => console.error('Failed to fetch profile pic', err));
     }

@@ -23,7 +23,7 @@ function ProductListing({ selectedCategory }) {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/products');
+      const res = await axios.get('http://localhost:10000/products');
       setProducts(res.data);
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -33,7 +33,7 @@ function ProductListing({ selectedCategory }) {
 
   const fetchCart = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/users/${currentUserId}`);
+      const res = await axios.get(`http://localhost:10000/users/${currentUserId}`);
       setCart(res.data.cart || []);
     } catch (error) {
       console.error('Error fetching cart:', error);
@@ -48,7 +48,7 @@ function ProductListing({ selectedCategory }) {
     }
 
     try {
-      const res = await axios.get(`http://localhost:5000/users/${currentUserId}`);
+      const res = await axios.get(`http://localhost:10000/users/${currentUserId}`);
       const user = res.data;
       const exists = user.wishlist?.some(w => w.productId === product.id);
 
@@ -67,7 +67,7 @@ function ProductListing({ selectedCategory }) {
             },
           ];
 
-      await axios.patch(`http://localhost:5000/users/${currentUserId}`, {
+      await axios.patch(`http://localhost:10000/users/${currentUserId}`, {
         wishlist: updatedWishlist,
       });
 
@@ -91,7 +91,7 @@ function ProductListing({ selectedCategory }) {
     }
 
     try {
-      const res = await axios.get(`http://localhost:5000/users/${currentUserId}`);
+      const res = await axios.get(`http://localhost:10000/users/${currentUserId}`);
       const user = res.data;
       const userCart = user.cart || [];
       const existing = userCart.find(item => item.productId === product.id);
@@ -116,7 +116,7 @@ function ProductListing({ selectedCategory }) {
         toast.success('Added to cart');
       }
 
-      await axios.patch(`http://localhost:5000/users/${currentUserId}`, {
+      await axios.patch(`http://localhost:10000/users/${currentUserId}`, {
         cart: updatedCart,
       });
 

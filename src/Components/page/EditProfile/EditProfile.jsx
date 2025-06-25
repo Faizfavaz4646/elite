@@ -12,7 +12,7 @@ const EditProfile = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/users/${currentUserId}`);
+        const res = await axios.get(`http://localhost:10000/users/${currentUserId}`);
         setUserData(res.data);
       } catch (error) {
         console.error(error);
@@ -29,7 +29,7 @@ const EditProfile = () => {
 
   const handleUpdate = async (values) => {
     try {
-      await axios.patch(`http://localhost:5000/users/${currentUserId}`, values);
+      await axios.patch(`http://localhost:10000/users/${currentUserId}`, values);
 toast.success("Profile updated successfully");
 
     } catch (err) {

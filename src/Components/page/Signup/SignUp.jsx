@@ -24,7 +24,7 @@ function SignUp() {
 
   const handleSubmit = async (values) => {
     try {
-      const res = await axios.get(`http://localhost:5000/users?email=${values.email}`);
+      const res = await axios.get(`http://localhost:10000/users?email=${values.email}`);
       if (res.data.length > 0) {
         toast.info("You already have an account!");
         navigate("/login");
@@ -49,7 +49,7 @@ function SignUp() {
         role: "user"
       };
 
-      await axios.post('http://localhost:5000/users', newUser);
+      await axios.post('http://localhost:10000/users', newUser);
       toast.success("Signup successful!");
       navigate("/login");
     } catch (err) {

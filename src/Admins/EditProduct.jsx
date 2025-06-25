@@ -15,7 +15,7 @@ const EditProduct = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/products/${id}`);
+        const res = await axios.get(`http://localhost:10000/products/${id}`);
         const product = res.data;
         setName(product.name);
         setPrice(product.price);
@@ -49,7 +49,7 @@ const EditProduct = () => {
     }
 
     try {
-      await axios.put(`http://localhost:5000/products/${id}`, {
+      await axios.put(`http://localhost:10000/products/${id}`, {
         name,
         price,
         image,

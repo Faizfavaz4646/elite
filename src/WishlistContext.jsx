@@ -16,7 +16,7 @@ export const WishlistProvider = ({ children }) => {
     }
 
     try {
-      const res = await axios.get(`http://localhost:5000/users/${currentUserId}`);
+      const res = await axios.get(`http://localhost:10000/users/${currentUserId}`);
       setWishlist(res.data.wishlist || []);
     } catch (err) {
       console.error("Failed to refresh wishlist:", err);

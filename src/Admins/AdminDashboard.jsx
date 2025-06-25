@@ -26,7 +26,7 @@ const AdminDashboard = () => {
 
   const fetchUserCount = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/users');
+      const res = await axios.get('http://localhost:10000/users');
       setUserCount(res.data.length);
     } catch (error) {
       console.error('Error fetching user data:', error);
@@ -35,7 +35,7 @@ const AdminDashboard = () => {
 
   const fetchProductCount = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/products');
+      const res = await axios.get('http://localhost:10000/products');
       setProductCount(res.data.length);
     } catch (error) {
       console.error('Error fetching product data:', error);
@@ -44,7 +44,7 @@ const AdminDashboard = () => {
 
   const fetchOrderCount = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/orders');
+      const res = await axios.get('http://localhost:10000/orders');
       setOrderCount(res.data.length);
     } catch (error) {
       console.error('Error fetching order data:', error);

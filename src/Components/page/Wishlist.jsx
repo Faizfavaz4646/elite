@@ -16,7 +16,7 @@ function Wishlist() {
 
   const fetchWishlist = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/users/${currentUserId}`);
+      const res = await axios.get(`http://localhost:10000/users/${currentUserId}`);
       setWishlist(res.data.wishlist || []);
     } catch (error) {
       console.error('Failed to fetch wishlist:', error);
@@ -26,11 +26,11 @@ function Wishlist() {
 
   const removeFromWishlist = async (productId) => {
     try {
-      const res = await axios.get(`http://localhost:5000/users/${currentUserId}`);
+      const res = await axios.get(`http://localhost:10000/users/${currentUserId}`);
       const user = res.data;
       const updatedWishlist = user.wishlist.filter((item) => item.productId !== productId);
 
-      await axios.put(`http://localhost:5000/users/${currentUserId}`, {
+      await axios.put(`http://localhost:10000/users/${currentUserId}`, {
         ...user,
         wishlist: updatedWishlist,
       });

@@ -271,7 +271,6 @@
       },
       "phone": "1234567890",
       "role": "user"
-     
     }
   ],
   "orders": [
@@ -932,6 +931,52 @@
       "date": "2025-06-04T11:37:21.738Z",
       "expectedDeliveryDate": "2025-06-07T11:37:21.739Z",
       "cancellationReason": "adbb"
+    },
+    {
+      "id": "3350",
+      "userId": "fa8c",
+      "items": [
+        {
+          "productId": "2",
+          "name": "Nike Football Jersey PSG",
+          "price": "550",
+          "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSHA951zorOzjJ4BYzBUShu9YrrRFAw9VcoGjFuhhx0Y9_QITnd2kTrZUGHnzoH8H1X4zy34eyERVGG-wuiHlMXzAFtossIAISF-6BquhLKVSKMcFGmFupiQw",
+          "category": "Jerseys",
+          "stock": 8,
+          "quantity": 3
+        }
+      ],
+      "totalAmount": 1700,
+      "paymentMethod": "Cash on Delivery",
+      "cardDetails": null,
+      "status": "Paid",
+      "date": "2025-06-25T10:38:15.482Z",
+      "expectedDeliveryDate": "2025-06-28T10:38:15.483Z"
+    },
+    {
+      "id": "ec4d",
+      "userId": "fa8c",
+      "items": [
+        {
+          "productId": "8",
+          "name": "Nike Men's Lamine Yamal Home Authentic Player Jersey",
+          "price": 875,
+          "image": "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ5yZe1yW8ZYJKWoxhMwCBtZYOQejkYc5-WkfLwPOD9b1pS-iMpHWfchUgRCUGr6ZXdt0wr_dtPjGjT4XSan7_ZHap0DotyLnqZFTkqBG_DqQ5F82jgT-vz",
+          "size": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
+          "stock": 10
+        }
+      ],
+      "totalAmount": 925,
+      "paymentMethod": "Cash on Delivery",
+      "cardDetails": null,
+      "status": "Paid",
+      "date": "2025-06-25T10:42:29.490Z",
+      "expectedDeliveryDate": "2025-06-28T10:42:29.490Z"
     }
   ],
   "products": [
@@ -982,7 +1027,7 @@
       "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR-GeaREMGH40fIlK077auTMo6GpU1p2lidIcwXXIsF7r16_ieY-ypQi8pbR1OS-1ozFm-q8n40SMo5ck1aNm1SN9cQBo1tEghqJVJUwbmCoOIjE-X-HQN3HA",
       "category": "Jerseys",
       "stock": 10,
-        "rating": 4.2,
+      "rating": 4.2,
       "reviewCount": 85,
       "id": "5"
     },

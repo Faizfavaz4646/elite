@@ -13,7 +13,7 @@ function ProductDetails() {
   const { setCart } = useCart();
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/products/${id}`)
+    axios.get(`http://localhost:10000/products/${id}`)
       .then(res => setProduct(res.data))
       .catch(err => console.error("Error fetching product:", err));
   }, [id]);
@@ -30,7 +30,7 @@ function ProductDetails() {
     }
 
     try {
-      const userRes = await axios.get(`http://localhost:5000/users/${currentUserId}`);
+      const userRes = await axios.get(`http://localhost:10000/users/${currentUserId}`);
       const user = userRes.data;
 
       const isInCart = user.cart.some(item => item.productId === product.id);
@@ -51,7 +51,7 @@ function ProductDetails() {
         }
       ];
 
-      await axios.put(`http://localhost:5000/users/${currentUserId}`, {
+      await axios.put(`http://localhost:10000/users/${currentUserId}`, {
         ...user,
         cart: updatedCart
       });

@@ -18,7 +18,7 @@ function Cart() {
       return;
     }
 
-    axios.get(`http://localhost:5000/users/${currentUserId}`)
+    axios.get(`http://localhost:10000/users/${currentUserId}`)
       .then(res => {
         const safeCart = (res.data.cart || []).map(item => ({
           ...item,
@@ -52,11 +52,11 @@ function Cart() {
 
   // Remove from cart
   const handleRemove = async (productId) => {
-    const res = await axios.get(`http://localhost:5000/users/${currentUserId}`);
+    const res = await axios.get(`http://localhost:10000/users/${currentUserId}`);
     const user = res.data;
     const updatedCart = (user.cart || []).filter(item => item.productId !== productId);
 
-    await axios.put(`http://localhost:5000/users/${currentUserId}`, {
+    await axios.put(`http://localhost:10000/users/${currentUserId}`, {
       ...user,
       cart: updatedCart
     });
@@ -76,14 +76,14 @@ function Cart() {
       return;
     }
 
-    const res = await axios.get(`http://localhost:5000/users/${currentUserId}`);
+    const res = await axios.get(`http://localhost:10000/users/${currentUserId}`);
     const user = res.data;
 
     const updatedCart = (user.cart || []).map(ci =>
       ci.productId === item.productId ? { ...ci, quantity: newQty } : ci
     );
 
-    await axios.put(`http://localhost:5000/users/${currentUserId}`, {
+    await axios.put(`http://localhost:10000/users/${currentUserId}`, {
       ...user,
       cart: updatedCart
     });

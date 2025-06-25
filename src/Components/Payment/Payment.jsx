@@ -42,7 +42,7 @@ const PaymentPage = () => {
 
     for (const item of cartItems) {
       try {
-        const response = await axios.get(`http://localhost:5000/products/${item.id}`);
+        const response = await axios.get(`http://localhost:10000/products/${item.id}`);
         if (response.data.stock < item.quantity) {
           outOfStock.push(item);
         }
@@ -91,8 +91,8 @@ const PaymentPage = () => {
         expectedDeliveryDate: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString()
       };
 
-      await axios.post("http://localhost:5000/orders", orderData);
-      await axios.patch(`http://localhost:5000/users/${userId}`, { cart: [] });
+      await axios.post("http://localhost:10000/orders", orderData);
+      await axios.patch(`http://localhost:10000/users/${userId}`, { cart: [] });
 
       setTimeout(() => {
         setIsLoading(false);

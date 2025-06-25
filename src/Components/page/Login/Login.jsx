@@ -25,7 +25,7 @@ function Login() {
 
   const handleSubmit = async (values) => {
     try {
-      const res = await axios.get('http://localhost:5000/users', {
+      const res = await axios.get('http://localhost:10000/users', {
         params: {
           email: values.email,
           password: values.password,

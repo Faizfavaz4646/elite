@@ -10,7 +10,7 @@ const AdminManageOrders = () => {
 
   const fetchOrders = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/orders');
+      const res = await axios.get('http://localhost:10000/orders');
       setOrders(res.data);
     } catch (error) {
       console.error('Error fetching orders:', error);
@@ -19,7 +19,7 @@ const AdminManageOrders = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/orders/${id}`);
+      await axios.delete(`http://localhost:10000/orders/${id}`);
       setOrders(orders.filter(order => order.id !== id));
     } catch (error) {
       console.error('Error deleting order:', error);
